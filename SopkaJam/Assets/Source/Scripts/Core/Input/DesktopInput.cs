@@ -14,11 +14,11 @@ public class DesktopInput : IInput
     }
     public bool Interaction()
     {
-        return Input.GetMouseButtonDown(0);
+        return Input.GetMouseButton(0);
     }
 
     public bool Dash()
     {
-        return Input.GetMouseButtonDown(1);
+        return Input.GetMouseButton(1);
     }
 }
