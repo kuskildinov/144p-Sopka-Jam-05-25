@@ -56,12 +56,12 @@ public class TriggersRoot : CompositeRoot
 
     private void TryOpenActiveDialog(int index)
     {
-        _dialogsRoot.TryShowDialogByIndex(index);
+        _dialogsRoot.TryShowDialogByIndex(index,true);
     }
 
     private void TryOpenPassiveDialog(int index)
     {
-        _dialogsRoot.TryShowDialogByIndex(index);
+        _dialogsRoot.TryShowDialogByIndex(index,true);
     }
 
     private void InitializeTriggers()

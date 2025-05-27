@@ -21,7 +21,7 @@ public class PlayerMovment : MonoBehaviour
 
     private bool _canMove = true;
     private bool _canDash = true;
-
+    
     public void Initialize(Player player, PlayerSettingsSO settings, IInput input, Rigidbody2D rigidbody, MovmentType movmentType)
     {
         _player = player;
@@ -48,6 +48,18 @@ public class PlayerMovment : MonoBehaviour
     }
 
     #region >>> MOVMENT
+
+    public void ActivateMovment()
+    {
+        _canMove = true;
+    }
+
+    public void DeactivateMovment()
+    {
+        _canMove = false;
+        _rigidbody.velocity = Vector2.zero;
+    }
+
     private void Move()
     {
         float moveX = _horizontalInput * _speed;
@@ -59,6 +71,17 @@ public class PlayerMovment : MonoBehaviour
     #endregion
 
     #region >>> DASH
+
+    public void ActivateDash()
+    {
+        _canDash = true;
+    }
+
+    public void DeactivateDash()
+    {
+        _canDash = false;
+        _rigidbody.velocity = Vector2.zero;
+    }
 
     private void StartDash()
     {

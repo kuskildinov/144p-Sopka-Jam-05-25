@@ -19,4 +19,28 @@ public class Player : MonoBehaviour
         _playerVisual.Initialize(this,_input);
         _playerInteractions.Initialize(this,_input);
     }
+
+    public void TogglePlayerMovment(bool value)
+    {
+        if (value)
+        {
+            _playerMovment.ActivateMovment();
+            _playerVisual.ActivateRotation();
+        }
+           
+        else
+        {
+            _playerMovment.DeactivateMovment();
+            _playerVisual.DeactivateRotation();
+        }
+          
+    }
+
+    public void TogglePlayerDash(bool value)
+    {
+        if (value)
+            _playerMovment.ActivateDash();
+        else
+            _playerMovment.DeactivateDash();
+    }
 }

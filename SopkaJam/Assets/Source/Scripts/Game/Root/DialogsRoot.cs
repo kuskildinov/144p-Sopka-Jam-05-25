@@ -5,6 +5,7 @@ using UnityEngine;
 public class DialogsRoot : CompositeRoot
 {
     [SerializeField] private DialogPanels _dialogPanels;
+    [SerializeField] private PlayerRoot _playerRoot;
 
     private IInput _input;   
     public override void Compose()
@@ -13,8 +14,20 @@ public class DialogsRoot : CompositeRoot
         _dialogPanels.Initialize(this, _input);
     }
 
-    public void TryShowDialogByIndex(int index)
+    public void TryShowDialogByIndex(int index, bool withMovmentDeactivation)
     {
         _dialogPanels.TryOpenPanelByIndex(index);
+        if (withMovmentDeactivation)
+            DeactivatePlayerMovment();
+    }
+
+    public void ActivatePlayerMovment()
+    {
+        _playerRoot.TogglePlayerMovment(true);
+    }
+
+    public void DeactivatePlayerMovment()
+    {
+        _playerRoot.TogglePlayerMovment(false);
     }
 }

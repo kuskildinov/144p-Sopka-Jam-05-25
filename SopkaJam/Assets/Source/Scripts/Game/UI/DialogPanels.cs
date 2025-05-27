@@ -54,12 +54,15 @@ public class DialogPanels : MonoBehaviour
         {
             panel.Close();
         }
+
+        _root.ActivatePlayerMovment();
      }
 
     private void TryOpenNextPage()
     {
         _currentOpenDialogPanel.OpenNextPage();
     }
+
     private void InitializePanels()
     {
         foreach (DialogPanel panel in _panels)

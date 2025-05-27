@@ -11,4 +11,7 @@ public class PlayerRoot : CompositeRoot
         _input = new DesktopInput();
         _player.Initialize(this,_input, _settings, _currentMovmentType);
     }
+
+    public void TogglePlayerMovment(bool value) => _player.TogglePlayerMovment(value);
+    public void TogglePlayerDash(bool value) => _player.TogglePlayerDash(value);
 }
