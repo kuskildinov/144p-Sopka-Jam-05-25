@@ -69,16 +69,16 @@ public class PlayerMovment : MonoBehaviour
     {
         _canMove = false;
         _canDash = false;
-      
-        //// Ёффект замедлени€ времени
-        //Time.timeScale = _slowMotionFactor;
-        //Time.fixedDeltaTime = 0.02f * Time.timeScale;
+
+        // Ёффект замедлени€ времени
+        Time.timeScale = _slowMotionFactor;
+        Time.fixedDeltaTime = 0.02f * Time.timeScale;
 
         _rigidbody.AddForce(_direction * _dashForce, ForceMode2D.Impulse);
 
-        //// ¬озвращаем нормальное врем€
-        //Time.timeScale = 1f;
-        //Time.fixedDeltaTime = 0.02f;
+        // ¬озвращаем нормальное врем€
+        Time.timeScale = 1f;
+        Time.fixedDeltaTime = 0.02f;
 
         yield return new WaitForSecondsRealtime(_dashTime);
         _rigidbody.velocity = Vector2.zero;
