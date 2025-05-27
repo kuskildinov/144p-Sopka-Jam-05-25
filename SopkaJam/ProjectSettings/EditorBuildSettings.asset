@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Source/Scenes/StartHouseScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Source/Scenes/StartVillageScene.unity
+    guid: ba133348973665f4c9e2583c546fcf21
   m_configObjects: {}

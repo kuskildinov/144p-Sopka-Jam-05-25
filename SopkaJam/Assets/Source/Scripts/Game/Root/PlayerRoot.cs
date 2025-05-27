@@ -9,6 +9,6 @@ public class PlayerRoot : CompositeRoot
     public override void Compose()
     {
         _input = new DesktopInput();
-        _player.Initialize(_input, _settings, _currentMovmentType);
+        _player.Initialize(this,_input, _settings, _currentMovmentType);
     }
 }
