@@ -6,8 +6,7 @@ public class PlayerInteractions : MonoBehaviour
 {
     private Player _player;
     private IInput _input;
-    private Trigger _currentTrigger;
-    private bool _isInsideTrigger;
+    private Trigger _currentTrigger;   
    public void Initialize(Player player,IInput input)
     {
         _player = player;
@@ -24,7 +23,7 @@ public class PlayerInteractions : MonoBehaviour
 
     private void TryActivateTrigger()
     {
-        if (_isInsideTrigger == false || _currentTrigger == null)
+        if (_currentTrigger == null)
             return;
         _currentTrigger.Activate();
         _currentTrigger.gameObject.SetActive(false);
@@ -35,12 +34,11 @@ public class PlayerInteractions : MonoBehaviour
     {
         if(collision.gameObject.TryGetComponent<Trigger>(out Trigger trigger))
         {
-            _isInsideTrigger = true;
+            _player.OnPlayerEnterTrigger(trigger);
             _currentTrigger = trigger;    
             if (_currentTrigger.Type == TriggetType.PASSIVE_DIALOG)
             {
-                _currentTrigger.Activate();
-                _currentTrigger = null;              
+                TryActivateTrigger();
             }          
         }
         if (collision.gameObject.TryGetComponent<SwapHouseTrigger>(out SwapHouseTrigger swqpTrigger))
@@ -54,7 +52,7 @@ public class PlayerInteractions : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<Trigger>(out Trigger trigger))
         {
-            _isInsideTrigger = false;
+            _player.OnPlayerExitTrigger();
             _currentTrigger = null;        
         }
     }

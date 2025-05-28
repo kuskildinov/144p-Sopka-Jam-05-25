@@ -5,6 +5,7 @@ public class PlayerRoot : CompositeRoot
     [SerializeField] private Player _player;
     [SerializeField] private PlayerSettingsSO _settings;
     [SerializeField] private MovmentType _currentMovmentType;
+    [SerializeField] private HintsRoot _hintsRoot;
     private IInput _input;
     public override void Compose()
     {
@@ -14,4 +15,14 @@ public class PlayerRoot : CompositeRoot
 
     public void TogglePlayerMovment(bool value) => _player.TogglePlayerMovment(value);
     public void TogglePlayerDash(bool value) => _player.TogglePlayerDash(value);
+
+    public void OnPlayerEnterTrigger(Trigger trigger)
+    {
+        _hintsRoot.ShowHintPanelByTrigger(trigger);
+    }
+
+    public void OnPlayerExitTrigger()
+    {
+        _hintsRoot.CloseAllHints();
+    }
 }

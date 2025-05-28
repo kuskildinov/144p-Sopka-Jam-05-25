@@ -46,7 +46,7 @@ public class TriggersRoot : CompositeRoot
                 break;
         }
     }
-
+  
     private void TryChangeLocation(int index)
     {
         string sceneName = _triggersData.GetLoactionNameByIndex(index);

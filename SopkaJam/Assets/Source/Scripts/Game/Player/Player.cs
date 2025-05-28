@@ -43,4 +43,8 @@ public class Player : MonoBehaviour
         else
             _playerMovment.DeactivateDash();
     }
+
+    public void OnPlayerEnterTrigger(Trigger trigger) => _root.OnPlayerEnterTrigger(trigger);
+
+    public void OnPlayerExitTrigger() => _root.OnPlayerExitTrigger();
 }
