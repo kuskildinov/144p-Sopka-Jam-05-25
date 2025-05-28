@@ -55,7 +55,8 @@ public class DialogPanels : MonoBehaviour
             panel.Close();
         }
 
-        _root.ActivatePlayerMovment();
+        _root.OnDialogEnded(_currentOpenDialogPanel.Index);
+        _currentOpenDialogPanel = null;
      }
 
     private void TryOpenNextPage()

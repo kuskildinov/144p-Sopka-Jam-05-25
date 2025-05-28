@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ public class DialogsRoot : CompositeRoot
 {
     [SerializeField] private DialogPanels _dialogPanels;
     [SerializeField] private PlayerRoot _playerRoot;
+
+    public event Action<int> DialogEnded;
 
     private IInput _input;   
     public override void Compose()
@@ -20,8 +23,13 @@ public class DialogsRoot : CompositeRoot
         if (withMovmentDeactivation)
         {
             DeactivatePlayerMovment();            
-        }
-           
+        }           
+    }
+
+    public void OnDialogEnded(int index)
+    {
+        DialogEnded?.Invoke(index);
+        ActivatePlayerMovment();
     }
 
     public void ActivatePlayerMovment()

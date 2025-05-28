@@ -14,6 +14,12 @@ public class LevelRoot : CompositeRoot
             return;
 
         _level.Initialize(this);
+        _dialogsRoot.DialogEnded += OnDialogEnded;
+    }
+
+    private void OnDisable()
+    {
+        _dialogsRoot.DialogEnded -= OnDialogEnded;
     }
 
     public void LoadSceneByName(string sceneName)
@@ -25,6 +31,11 @@ public class LevelRoot : CompositeRoot
     public void OnItemTaked(int index)
     {
         _level.OnItemTaked(index);
+    }
+
+    public void OnDialogEnded(int index)
+    {
+        _level.OnDialogEnded(index);
     }
 
     public void ActivateTrigger(int index)
