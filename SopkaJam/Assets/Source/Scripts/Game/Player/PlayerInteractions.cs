@@ -27,6 +27,8 @@ public class PlayerInteractions : MonoBehaviour
         if (_isInsideTrigger == false || _currentTrigger == null)
             return;
         _currentTrigger.Activate();
+        _currentTrigger.gameObject.SetActive(false);
+        _currentTrigger = null;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -38,10 +40,14 @@ public class PlayerInteractions : MonoBehaviour
             if (_currentTrigger.Type == TriggetType.PASSIVE_DIALOG)
             {
                 _currentTrigger.Activate();
-                _currentTrigger.gameObject.SetActive(false);
-                _currentTrigger = null;
-            }
-        }      
+                _currentTrigger = null;              
+            }          
+        }
+        if (collision.gameObject.TryGetComponent<SwapHouseTrigger>(out SwapHouseTrigger swqpTrigger))
+        {
+            swqpTrigger.TeleportPlayer(_player.gameObject);
+        }
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)

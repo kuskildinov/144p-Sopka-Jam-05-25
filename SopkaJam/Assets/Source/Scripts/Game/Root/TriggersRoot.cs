@@ -7,6 +7,7 @@ public class TriggersRoot : CompositeRoot
     [SerializeField] private LevelRoot _levelRoot;
     [SerializeField] private DialogsRoot _dialogsRoot;
     [SerializeField] private TriggersDataSO _triggersData;
+    [SerializeField] private ItemsRoot _itemsRoot;
     [SerializeField] private List<Trigger> _triggers;
 
     public override void Compose()
@@ -25,6 +26,7 @@ public class TriggersRoot : CompositeRoot
                 }
             case TriggetType.TAKE_ITEM:
                 {
+                    TryTakeItem(trigger.Index);
                     break;
                 }
               
@@ -62,6 +64,12 @@ public class TriggersRoot : CompositeRoot
     private void TryOpenPassiveDialog(int index)
     {
         _dialogsRoot.TryShowDialogByIndex(index,true);
+    }
+
+    private void TryTakeItem(int index)
+    {
+        _levelRoot.OnItemTaked();
+        //_itemsRoot.OpenDescriptionByIndex(index);
     }
 
     private void InitializeTriggers()

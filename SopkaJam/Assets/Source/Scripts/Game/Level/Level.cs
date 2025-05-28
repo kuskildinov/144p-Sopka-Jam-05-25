@@ -2,7 +2,14 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
-   public void Initialize()
+    protected bool _canLeaveLevel;
+
+   public virtual void Initialize()
+    {
+       
+    }
+
+    public virtual void OnItemTaked()
     {
 
     }

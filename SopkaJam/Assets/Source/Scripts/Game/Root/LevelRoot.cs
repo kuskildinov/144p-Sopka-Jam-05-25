@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,6 +14,11 @@ public class LevelRoot : CompositeRoot
     public void LoadSceneByName(string sceneName)
     {
         StartCoroutine(LoadSceneRoutine(sceneName));
+    }
+
+    public void OnItemTaked()
+    {
+        _level.OnItemTaked();
     }
 
     private IEnumerator LoadSceneRoutine(string sceneName)
