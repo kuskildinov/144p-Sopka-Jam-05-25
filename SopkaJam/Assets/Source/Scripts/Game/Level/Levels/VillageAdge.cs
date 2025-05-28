@@ -33,6 +33,11 @@ public class VillageAdge : Level
         }
     }
 
+    public override void OnItemTaked(int index)
+    {
+        _root.TryActivateCommentByIndex(index);
+    }
+
     public override void ActivateTrigger(int index)
     {
         if (index == 0)

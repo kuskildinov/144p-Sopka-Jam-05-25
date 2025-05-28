@@ -14,7 +14,7 @@ public class DesktopInput : IInput
     }
     public bool Interaction()
     {
-        return Input.GetMouseButtonDown(0);
+        return (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E));
     }
 
     public bool Dash()

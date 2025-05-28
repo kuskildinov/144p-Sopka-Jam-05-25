@@ -26,6 +26,11 @@ public class DialogsRoot : CompositeRoot
         }           
     }
 
+    public void TryShowCommentByIndex(int index)
+    {
+        _dialogPanels.TryOpenCommentByIndex(index);
+    }
+
     public void OnDialogEnded(int index)
     {
         DialogEnded?.Invoke(index);

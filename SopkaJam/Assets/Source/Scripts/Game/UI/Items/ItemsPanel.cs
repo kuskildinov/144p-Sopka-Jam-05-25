@@ -15,6 +15,9 @@ public class ItemsPanel : MonoBehaviour
 
     public void OpenDescriptionByIndex(int index)
     {
+        if (_descriptions == null || _descriptions.Count <= 0)
+            return;
+
         foreach (ItemDescriptionPanel description in _descriptions)
         {
             if (description.Index == index)

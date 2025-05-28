@@ -63,6 +63,11 @@ public class LevelRoot : CompositeRoot
         _dialogsRoot.TryShowDialogByIndex(index,true);
     }
 
+    public void TryActivateCommentByIndex(int index)
+    {
+        _dialogsRoot.TryShowCommentByIndex(index);
+    }
+
     public void TogglePlayerAnimation(bool value)
     {
         _playerRoot.TogglePlayerAnimation(value);

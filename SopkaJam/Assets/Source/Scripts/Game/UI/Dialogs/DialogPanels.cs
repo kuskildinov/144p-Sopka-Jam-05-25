@@ -5,6 +5,7 @@ using UnityEngine;
 public class DialogPanels : MonoBehaviour
 {
     [SerializeField] private List<DialogPanel> _panels;
+    [SerializeField] private float _thinkingPanelTime;
 
     private DialogsRoot _root;
     private DialogPanel _currentOpenDialogPanel;
@@ -47,6 +48,11 @@ public class DialogPanels : MonoBehaviour
         }
     }
 
+    public void TryOpenCommentByIndex(int index)
+    {
+        StartCoroutine(ThinkingRoutine(index));
+    }
+
     public void CloseAllPanels()
     {
         _isDialogOpen = false;
@@ -70,6 +76,13 @@ public class DialogPanels : MonoBehaviour
         {
             panel.Initialize(this);
         }
+    }
+
+    private IEnumerator ThinkingRoutine(int index)
+    {
+        TryOpenPanelByIndex(index);
+        yield return new WaitForSecondsRealtime(_thinkingPanelTime);
+        CloseAllPanels();
     }
 
 
