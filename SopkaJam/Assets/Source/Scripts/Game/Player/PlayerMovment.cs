@@ -58,6 +58,7 @@ public class PlayerMovment : MonoBehaviour
     {
         _canMove = false;
         _rigidbody.velocity = Vector2.zero;
+        _player.ChangeState(PlayerState.IDLE);
     }
 
     private void Move()
@@ -66,6 +67,15 @@ public class PlayerMovment : MonoBehaviour
         float moveY = _verticalInput * _speed;
 
         _rigidbody.velocity = new Vector2(moveX, moveY);
+
+        if(moveX != 0 || moveY != 0)
+        {
+            _player.ChangeState(PlayerState.WALK);
+        }
+        else
+        {
+            _player.ChangeState(PlayerState.IDLE);
+        }
     }
 
     #endregion
@@ -92,7 +102,7 @@ public class PlayerMovment : MonoBehaviour
     {
         _canMove = false;
         _canDash = false;
-
+        _player.ChangeState(PlayerState.DASH);
         // Ёффект замедлени€ времени
         Time.timeScale = _slowMotionFactor;
         Time.fixedDeltaTime = 0.02f * Time.timeScale;
@@ -105,6 +115,7 @@ public class PlayerMovment : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(_dashTime);
         _rigidbody.velocity = Vector2.zero;
+        _player.ChangeState(PlayerState.IDLE);
         _canMove = true;
         yield return new WaitForSeconds(_cooldown);
         _canDash = true;

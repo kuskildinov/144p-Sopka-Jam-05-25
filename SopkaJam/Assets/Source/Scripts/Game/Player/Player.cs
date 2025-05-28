@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -7,8 +8,13 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerVisual _playerVisual;
     [SerializeField] private PlayerInteractions _playerInteractions;
 
+    private PlayerState _currentState;
     private PlayerRoot _root;
-    private IInput _input;   
+    private IInput _input;
+
+    public PlayerState CurrentState => _currentState;
+
+    public event Action PlayerStateChanged;
 
     public void Initialize(PlayerRoot playerRoot, IInput input, PlayerSettingsSO settings, MovmentType movmentType)
     {
@@ -18,7 +24,11 @@ public class Player : MonoBehaviour
         _playerMovment.Initialize(this, settings, input, _rigidbody, movmentType);
         _playerVisual.Initialize(this,_input);
         _playerInteractions.Initialize(this,_input);
+
+        ChangeState(PlayerState.IDLE);
     }
+
+    #region >>> MOVMENT
 
     public void TogglePlayerMovment(bool value)
     {
@@ -44,7 +54,34 @@ public class Player : MonoBehaviour
             _playerMovment.DeactivateDash();
     }
 
+    #endregion
+
+    #region >>> INTERACTIONS
+
     public void OnPlayerEnterTrigger(Trigger trigger) => _root.OnPlayerEnterTrigger(trigger);
 
     public void OnPlayerExitTrigger() => _root.OnPlayerExitTrigger();
+
+    #endregion
+
+    #region >>> VISUAL
+
+    public void ChangeState(PlayerState newState)
+    {
+        _currentState = newState;
+        PlayerStateChanged?.Invoke();
+    }
+
+    #endregion
+
+
 }
+
+public enum PlayerState
+{
+    IDLE,
+    WALK,
+    RUN,
+    DASH,
+}
+

@@ -18,16 +18,21 @@ public class DialogsRoot : CompositeRoot
     {
         _dialogPanels.TryOpenPanelByIndex(index);
         if (withMovmentDeactivation)
-            DeactivatePlayerMovment();
+        {
+            DeactivatePlayerMovment();            
+        }
+           
     }
 
     public void ActivatePlayerMovment()
     {
         _playerRoot.TogglePlayerMovment(true);
+        _playerRoot.TogglePlayerDash(true);
     }
 
     public void DeactivatePlayerMovment()
     {
         _playerRoot.TogglePlayerMovment(false);
+        _playerRoot.TogglePlayerDash(false);
     }
 }
