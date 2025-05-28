@@ -6,6 +6,7 @@ public class DialogPanel : MonoBehaviour
     [SerializeField] private int _index;
     [SerializeField] private GameObject _panel;
     [SerializeField] private List<GameObject> _pages;
+    [SerializeField] private bool _needSkip = true;
 
     private DialogPanels _dialogPanels;
     private int _currentPageIndex;
@@ -30,7 +31,7 @@ public class DialogPanel : MonoBehaviour
     }
 
     private void OpenPageByIndex(int index)
-    {
+    {       
         _currentPageIndex = 0;
         for (int i = 0; i < _pages.Count; i++)
         {
@@ -52,6 +53,9 @@ public class DialogPanel : MonoBehaviour
 
     public void OpenNextPage()
     {
+        if (_needSkip == false)
+            return;
+
         CLosePageByIndex(_currentPageIndex);
         _currentPageIndex++;
         if (_currentPageIndex < _pages.Count)

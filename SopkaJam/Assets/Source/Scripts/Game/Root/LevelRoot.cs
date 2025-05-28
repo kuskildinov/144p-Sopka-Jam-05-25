@@ -78,6 +78,11 @@ public class LevelRoot : CompositeRoot
         _hintsRoot.ShowHintByType(type);
     }
 
+    public void CloseHints()
+    {
+        _hintsRoot.CloseAllHints();
+    }
+
     private bool CheckCanLraveLevel()
     {
         if (_level.CanLeaveLevel)

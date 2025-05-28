@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8248696398791421346}
   - component: {fileID: 4936262107315934942}
   m_Layer: 0
-  m_Name: TakeItemTrigger (0)
+  m_Name: TakeItemTrigger (Toys)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

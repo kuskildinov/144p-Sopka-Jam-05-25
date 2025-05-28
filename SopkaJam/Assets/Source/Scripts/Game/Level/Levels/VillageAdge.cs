@@ -9,15 +9,19 @@ public class VillageAdge : Level
     [SerializeField] private PlayableDirector _tigerMeetingPlayableDirector;
     [SerializeField] private PlayableDirector _playerDashPlayableDirector;
     [SerializeField] private FirstMeetingTiger _tiger;
+    [SerializeField] private Trigger _cryTrigger;                            //TODO: вынести логику к ROOT
     [SerializeField] private string _nextSceneName;
     [Header("Tiger Settings")]
     [SerializeField] private float _prepareTime;
     [SerializeField] private float _jumpDuration;
 
     private bool _isSecondAct;
+    private bool _isCtying;
+    private int _commentIndex;
     public override void Initialize(LevelRoot levelRoot, IInput input)
     {
-        base.Initialize(levelRoot, input);      
+        base.Initialize(levelRoot, input);
+        _commentIndex = 1;
     }
 
     private void Update()
@@ -31,11 +35,20 @@ public class VillageAdge : Level
                 _canLeaveLevel = true;
             }
         }
+
+        if(_isCtying)
+        {
+            if(Input.anyKeyDown)
+            {
+                StopCry();
+            }
+        }
     }
 
     public override void OnItemTaked(int index)
     {
-        _root.TryActivateCommentByIndex(index);
+        _root.TryActivateCommentByIndex(_commentIndex);
+        _commentIndex++;
     }
 
     public override void ActivateTrigger(int index)
@@ -44,7 +57,11 @@ public class VillageAdge : Level
         {
             _root.DeactivatePlayerMovment();           
             _tigerMeetingPlayableDirector.Play();
-        }           
+        }    
+        else if(index == 1)
+        {
+            StartCoroutine(CryRoutine());
+        }
     }
 
     public override void OnDialogEnded(int index)
@@ -72,6 +89,19 @@ public class VillageAdge : Level
         _root.LoadSceneByName(_nextSceneName);
     }
 
+    private void StartCry()
+    {      
+        _root.DeactivatePlayerMovment();
+        _root.CloseHints();
+    }
+
+    private void StopCry()
+    {
+        _root.ActivatePlayerMovment();        
+        _isCtying = false;
+        _cryTrigger.gameObject.SetActive(true);
+    }
+
     private IEnumerator DodgeTigerRoutine()
     {
         _tiger.SetPrepare();
@@ -83,6 +113,14 @@ public class VillageAdge : Level
         _root.TogglePlayerAnimation(false);
         _root.ShowHintsByType(HintsType.DASH);
         _isSecondAct = true;
+        yield break;
+    }
+
+    private IEnumerator CryRoutine()
+    {
+        StartCry();
+        yield return new WaitForSecondsRealtime(0.5f);
+        _isCtying = true;
         yield break;
     }
 }

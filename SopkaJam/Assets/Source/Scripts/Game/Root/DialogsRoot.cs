@@ -19,7 +19,7 @@ public class DialogsRoot : CompositeRoot
 
     public void TryShowDialogByIndex(int index, bool withMovmentDeactivation)
     {
-        _dialogPanels.TryOpenPanelByIndex(index);
+        _dialogPanels.TryOpenDialogPanelByIndex(index);
         if (withMovmentDeactivation)
         {
             DeactivatePlayerMovment();            

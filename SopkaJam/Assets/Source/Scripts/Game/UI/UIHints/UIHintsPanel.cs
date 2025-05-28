@@ -4,6 +4,7 @@ public class UIHintsPanel : MonoBehaviour
 {
     [SerializeField] private GameObject _interactionHintPanel;
     [SerializeField] private GameObject _dashHintPanel;
+    [SerializeField] private GameObject _levelHintPanel;
 
     public void ShowHintPanelByTrigger(Trigger trigger)
     {
@@ -21,7 +22,10 @@ public class UIHintsPanel : MonoBehaviour
                 }
             case TriggetType.LEVEL_ACTIVATION:
                 {
-                    _interactionHintPanel.gameObject.SetActive(true);
+                    if (trigger.Index == 0)
+                        _interactionHintPanel.gameObject.SetActive(true);
+                    else if (trigger.Index == 1)
+                        _levelHintPanel.gameObject.SetActive(true);
                     break;
                 }
         }
@@ -41,6 +45,11 @@ public class UIHintsPanel : MonoBehaviour
                     _dashHintPanel.gameObject.SetActive(true);
                     break;
                 }
+            case HintsType.LEVEL:
+                {
+                    _levelHintPanel.gameObject.SetActive(true);
+                    break;
+                }
         }
 
     }
@@ -52,6 +61,7 @@ public class UIHintsPanel : MonoBehaviour
 
         _interactionHintPanel.gameObject.SetActive(false);
         _dashHintPanel.gameObject.SetActive(false);
+        _levelHintPanel.gameObject.SetActive(false);
     }
 }
 
@@ -59,5 +69,6 @@ public enum HintsType
 {
     INTERACTION,
     DASH,
+    LEVEL,
 }
 

@@ -32,12 +32,12 @@ public class DialogPanels : MonoBehaviour
 
     }
 
-    public void TryOpenPanelByIndex(int index)
-    {
+    public void TryOpenDialogPanelByIndex(int index)
+    {       
         foreach (DialogPanel panel in _panels)
         {
             if (panel.Index == index)
-            {
+            {              
                 panel.Open();
                 _currentOpenDialogPanel = panel;
                 _isDialogOpen = true;
@@ -51,6 +51,19 @@ public class DialogPanels : MonoBehaviour
     public void TryOpenCommentByIndex(int index)
     {
         StartCoroutine(ThinkingRoutine(index));
+    }
+
+    public void CloseCommentByIndex(int index)
+    {
+        foreach (DialogPanel panel in _panels)
+        {
+            if (panel.Index == index)
+            {
+                panel.Close();
+                _currentOpenDialogPanel = null;
+                _isDialogOpen = false;
+            }
+        }
     }
 
     public void CloseAllPanels()
@@ -79,10 +92,10 @@ public class DialogPanels : MonoBehaviour
     }
 
     private IEnumerator ThinkingRoutine(int index)
-    {
-        TryOpenPanelByIndex(index);
+    {        
+        TryOpenDialogPanelByIndex(index);
         yield return new WaitForSecondsRealtime(_thinkingPanelTime);
-        CloseAllPanels();
+        CloseCommentByIndex(index);
     }
 
 

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be1fe27ed44c334e9d88dc07fe8d67d, type: 3}
   m_Name: Player Settings
   m_EditorClassIdentifier: 
-  _movmentSpeed: 4
+  _movmentSpeed: 2
   _dashForce: 10
   _cooldown: 0.5
   _dashTime: 0.2
