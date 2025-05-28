@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class LevelRoot : CompositeRoot
 {
+    [SerializeField] private PlayerRoot _playerRoot;
+    [SerializeField] private DialogsRoot _dialogsRoot;
     [SerializeField] private Level _level;
     [SerializeField] private Fade _fadeUI;
     public override void Compose()
@@ -11,20 +13,38 @@ public class LevelRoot : CompositeRoot
         if (_level == null)
             return;
 
-        _level.Initialize();
+        _level.Initialize(this);
     }
 
     public void LoadSceneByName(string sceneName)
     {
         if (CheckCanLraveLevel())
-            StartCoroutine(LoadSceneRoutine(sceneName));
-        else
-            Debug.Log("Не все предметы собраны");
+            StartCoroutine(LoadSceneRoutine(sceneName));     
     }
 
-    public void OnItemTaked()
+    public void OnItemTaked(int index)
     {
-        _level.OnItemTaked();
+        _level.OnItemTaked(index);
+    }
+
+    public void ActivateTrigger(int index)
+    {
+        _level.ActivateTrigger(index);
+    }
+
+    public void ActivatePlayerMovment()
+    {
+        _playerRoot.TogglePlayerMovment(true);
+    }
+
+    public void DeactivatePlayerMovment()
+    {
+        _playerRoot.TogglePlayerMovment(false);
+    }
+
+    public void TryActivateDialogByIndex(int index)
+    {
+        _dialogsRoot.TryShowDialogByIndex(index,true);
     }
 
     private bool CheckCanLraveLevel()
@@ -34,6 +54,7 @@ public class LevelRoot : CompositeRoot
         else
             return false;
     }
+
 
     private IEnumerator LoadSceneRoutine(string sceneName)
     {

@@ -41,7 +41,12 @@ public class TriggersRoot : CompositeRoot
                     TryOpenPassiveDialog(trigger.Index);
                     break;
                 }
-               
+            case TriggetType.LEVEL_ACTIVATION:
+                {
+                    TryActivateLevelTrigger(trigger.Index);
+                    break;
+                }
+
             default:
                 break;
         }
@@ -68,8 +73,13 @@ public class TriggersRoot : CompositeRoot
 
     private void TryTakeItem(int index)
     {
-        _levelRoot.OnItemTaked();
+        _levelRoot.OnItemTaked(index);
         _itemsRoot.OpenDescriptionByIndex(index);
+    }
+
+    private void TryActivateLevelTrigger(int index)
+    {
+        _levelRoot.ActivateTrigger(index);
     }
 
     private void InitializeTriggers()
@@ -87,4 +97,5 @@ public enum TriggetType
     TAKE_ITEM,
     ACTIVE_DIALOG,
     PASSIVE_DIALOG,
+    LEVEL_ACTIVATION,
 }

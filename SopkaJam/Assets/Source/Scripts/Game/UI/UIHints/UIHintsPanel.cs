@@ -16,7 +16,12 @@ public class UIHintsPanel : MonoBehaviour
                 }
             case TriggetType.GO_TO_LOCATION:
                 {
-                    _dashHintPanel.gameObject.SetActive(true);
+                    _interactionHintPanel.gameObject.SetActive(true);
+                    break;
+                }
+            case TriggetType.LEVEL_ACTIVATION:
+                {
+                    _interactionHintPanel.gameObject.SetActive(true);
                     break;
                 }
         }
