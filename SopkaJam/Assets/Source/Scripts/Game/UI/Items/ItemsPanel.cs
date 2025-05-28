@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,19 +10,39 @@ public class ItemsPanel : MonoBehaviour
     public void Initialize(ItemsRoot itemsRoot)
     {
         _root = itemsRoot;
+        InitializeAllPanels();
     }
 
     public void OpenDescriptionByIndex(int index)
     {
-
+        foreach (ItemDescriptionPanel description in _descriptions)
+        {
+            if (description.Index == index)
+            {
+                description.Open();
+                _root.OnItemDescriptionOpened();
+            }
+               
+            else
+                description.Close();
+        }
     }
 
-    private void CloseDescription(ItemDescriptionPanel descriptionPanel)
+    public void CloseDescription(ItemDescriptionPanel descriptionPanel)
     {
-        descriptionPanel.gameObject.SetActive(false);
+        descriptionPanel.Close();
+        _root.OnItemDescriptionClosed();
     }
 
-    public void CloseAllDescriptions()
+    private void InitializeAllPanels()
+    {
+        foreach (ItemDescriptionPanel panel in _descriptions)
+        {
+            panel.Initialize(this);
+        }
+    }
+
+    private void CloseAllDescriptions()
     {
         foreach (ItemDescriptionPanel description in _descriptions)
         {
