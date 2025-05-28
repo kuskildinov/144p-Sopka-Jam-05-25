@@ -508,7 +508,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &41559421
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1709,9 +1709,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tigerMeetingPlayableDirector: {fileID: 889184032}
-  _playerDashPlayableDirector: {fileID: 943722419}
+  _playerDashPlayableDirector: {fileID: 889184032}
   _tiger: {fileID: 353494558}
-  _nextSceneName: TigerBushes
+  _nextSceneName: 
   _prepareTime: 1
   _jumpDuration: 1
 --- !u!224 &220748437 stripped
@@ -3931,7 +3931,7 @@ PlayableDirector:
   - key: {fileID: -7532917509937145863, guid: 8837fb06ed936404fa95901af654e745, type: 2}
     value: {fileID: 1959541207}
   - key: {fileID: 950517955069402347, guid: 8837fb06ed936404fa95901af654e745, type: 2}
-    value: {fileID: 1079119247}
+    value: {fileID: 0}
   - key: {fileID: 5818985219037067785, guid: 8837fb06ed936404fa95901af654e745, type: 2}
     value: {fileID: 1925274887}
   - key: {fileID: 5210356633222506946, guid: 8837fb06ed936404fa95901af654e745, type: 2}

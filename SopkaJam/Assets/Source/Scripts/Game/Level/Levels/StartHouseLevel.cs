@@ -7,9 +7,9 @@ public class StartHouseLevel : Level
     [SerializeField] private int _itemToTakeCount;
 
     private int _takedItemCounter;
-    public override void Initialize(LevelRoot levelRoot)
+    public override void Initialize(LevelRoot levelRoot, IInput input)
     {
-        base.Initialize(levelRoot);
+        base.Initialize(levelRoot, input);
         _takedItemCounter = 0;
     }
 

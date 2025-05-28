@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Source/Scenes/StartVillageScene.unity
     guid: ba133348973665f4c9e2583c546fcf21
+  - enabled: 1
+    path: Assets/Source/Scenes/TigerBushes.unity
+    guid: 7e18009ee1304e14e81ece2eb628f385
   m_configObjects: {}

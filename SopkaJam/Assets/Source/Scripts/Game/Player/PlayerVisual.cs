@@ -61,6 +61,18 @@ public class PlayerVisual : MonoBehaviour
 
     #region >>> ANIMATIONS
 
+    public void TogglePlayerAnimation(bool value)
+    {
+        if (value)
+        {
+            _animator.speed = 1f;
+        }
+        else
+        {
+            _animator.speed = 0f;
+        }
+    }
+
     public void OnPlayerStateChanged()
     {
         PlayerState currentstate = _player.CurrentState;

@@ -27,8 +27,29 @@ public class UIHintsPanel : MonoBehaviour
         }
     }
 
+    public void ShowHintPanelByType(HintsType type)
+    {
+        switch (type)
+        {
+            case HintsType.INTERACTION:
+                {
+                    _interactionHintPanel.gameObject.SetActive(true);
+                    break;
+                }
+            case HintsType.DASH:
+                {
+                    _dashHintPanel.gameObject.SetActive(true);
+                    break;
+                }
+        }
+
+    }
+
     public void CloseAllHints()
     {
+        if (_interactionHintPanel == null || _dashHintPanel == null)
+            return;
+
         _interactionHintPanel.gameObject.SetActive(false);
         _dashHintPanel.gameObject.SetActive(false);
     }

@@ -6,14 +6,18 @@ public class LevelRoot : CompositeRoot
 {
     [SerializeField] private PlayerRoot _playerRoot;
     [SerializeField] private DialogsRoot _dialogsRoot;
+    [SerializeField] private HintsRoot _hintsRoot;
     [SerializeField] private Level _level;
     [SerializeField] private Fade _fadeUI;
+
+    private IInput _input;
+    
     public override void Compose()
     {
         if (_level == null)
             return;
-
-        _level.Initialize(this);
+        _input = new DesktopInput();
+        _level.Initialize(this, _input);
         _dialogsRoot.DialogEnded += OnDialogEnded;
     }
 
@@ -51,11 +55,22 @@ public class LevelRoot : CompositeRoot
     public void DeactivatePlayerMovment()
     {
         _playerRoot.TogglePlayerMovment(false);
+        _playerRoot.TogglePlayerDash(false);
     }
 
     public void TryActivateDialogByIndex(int index)
     {
         _dialogsRoot.TryShowDialogByIndex(index,true);
+    }
+
+    public void TogglePlayerAnimation(bool value)
+    {
+        _playerRoot.TogglePlayerAnimation(value);
+    }
+
+    public void ShowHintsByType(HintsType type)
+    {
+        _hintsRoot.ShowHintByType(type);
     }
 
     private bool CheckCanLraveLevel()

@@ -72,6 +72,11 @@ public class Player : MonoBehaviour
         PlayerStateChanged?.Invoke();
     }
 
+    public void TogglePlayerAnimation(bool value)
+    {
+        _playerVisual.TogglePlayerAnimation(value);
+    }
+
     #endregion
 
 

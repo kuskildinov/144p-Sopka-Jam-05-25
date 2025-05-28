@@ -15,6 +15,8 @@ public class PlayerRoot : CompositeRoot
 
     public void TogglePlayerMovment(bool value) => _player.TogglePlayerMovment(value);
     public void TogglePlayerDash(bool value) => _player.TogglePlayerDash(value);
+    public void TogglePlayerAnimation(bool value) => _player.TogglePlayerAnimation(value);
+    
 
     public void OnPlayerEnterTrigger(Trigger trigger)
     {
