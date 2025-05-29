@@ -43,7 +43,7 @@ public class TriggersRoot : CompositeRoot
                 }
             case TriggetType.LEVEL_ACTIVATION:
                 {
-                    TryActivateLevelTrigger(trigger.Index);
+                    TryActivateLevelTrigger(trigger.Index);                  
                     break;
                 }
             case TriggetType.BUSH:
@@ -85,6 +85,7 @@ public class TriggersRoot : CompositeRoot
     private void TryActivateLevelTrigger(int index)
     {
         _levelRoot.ActivateTrigger(index);
+        Debug.Log("TEST");
     }
   
     private void InitializeTriggers()

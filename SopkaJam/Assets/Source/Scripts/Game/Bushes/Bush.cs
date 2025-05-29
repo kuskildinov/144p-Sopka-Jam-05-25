@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bush : Trigger
@@ -10,9 +9,8 @@ public class Bush : Trigger
     private const string LEFT_OFF = "LeftOff";
     private const int ShowAnimationDuration = 1;
 
-    [SerializeField] private Animator _animator;
-    [SerializeField] private GameObject _rightDetectionTrigger;
-    [SerializeField] private GameObject _leftDetectionTrigger;
+    [SerializeField] private Animator _animator;  
+    [SerializeField] private float _holdTigerTime = 3f;
 
     public void ShowTiger(bool isLeft)
     {
@@ -22,9 +20,7 @@ public class Bush : Trigger
     public void HideTigers()
     {
         _animator.SetTrigger(RIGHT_OFF);
-        _animator.SetTrigger(LEFT_OFF);
-        _rightDetectionTrigger.gameObject.SetActive(false);
-        _leftDetectionTrigger.gameObject.SetActive(false);
+        _animator.SetTrigger(LEFT_OFF);       
     }
 
     private IEnumerator ShowTigerRoutine(bool isLeft)
@@ -32,17 +28,15 @@ public class Bush : Trigger
         if(isLeft)
         {
             _animator.SetTrigger(LEFT_ON);
-            yield return new WaitForSecondsRealtime(ShowAnimationDuration / 2);
-            _leftDetectionTrigger.gameObject.SetActive(true);
+            Physics.SyncTransforms();
         }
         else
         {
             _animator.SetTrigger(RIGHT_ON);
-            yield return new WaitForSecondsRealtime(ShowAnimationDuration / 2);
-            _rightDetectionTrigger.gameObject.SetActive(true);
+            Physics.SyncTransforms();
         }
 
-        yield return new WaitForSecondsRealtime(3f);
+        yield return new WaitForSecondsRealtime(_holdTigerTime);
         HideTigers();
     }
 }
