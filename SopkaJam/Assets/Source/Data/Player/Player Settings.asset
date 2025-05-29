@@ -15,5 +15,5 @@ MonoBehaviour:
   _movmentSpeed: 2
   _dashForce: 10
   _cooldown: 0.5
-  _dashTime: 0.2
+  _dashTime: 0.4
   _slowMotionFactor: 0.2

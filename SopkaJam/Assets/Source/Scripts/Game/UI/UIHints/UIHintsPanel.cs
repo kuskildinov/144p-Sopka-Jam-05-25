@@ -55,13 +55,13 @@ public class UIHintsPanel : MonoBehaviour
     }
 
     public void CloseAllHints()
-    {
-        if (_interactionHintPanel == null || _dashHintPanel == null)
-            return;
-
-        _interactionHintPanel.gameObject.SetActive(false);
-        _dashHintPanel.gameObject.SetActive(false);
-        _levelHintPanel.gameObject.SetActive(false);
+    {       
+        if (_interactionHintPanel != null)
+            _interactionHintPanel.gameObject.SetActive(false);
+        if (_dashHintPanel != null)
+            _dashHintPanel.gameObject.SetActive(false);
+        if(_levelHintPanel != null)
+            _levelHintPanel.gameObject.SetActive(false);
     }
 }
 

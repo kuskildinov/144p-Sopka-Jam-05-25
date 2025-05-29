@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInteractions : MonoBehaviour
@@ -45,7 +43,12 @@ public class PlayerInteractions : MonoBehaviour
         {
             swqpTrigger.TeleportPlayer(_player.gameObject);
         }
-        
+        if(collision.gameObject.TryGetComponent<Bush> (out Bush bush))
+        {
+            _currentTrigger = trigger;
+            _currentTrigger.Activate();           
+            _currentTrigger = null;
+        }        
     }
 
     private void OnTriggerExit2D(Collider2D collision)

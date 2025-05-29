@@ -46,6 +46,11 @@ public class TriggersRoot : CompositeRoot
                     TryActivateLevelTrigger(trigger.Index);
                     break;
                 }
+            case TriggetType.BUSH:
+                {
+                    TryActivateLevelTrigger(trigger.Index);
+                    break;
+                }
 
             default:
                 break;
@@ -81,7 +86,7 @@ public class TriggersRoot : CompositeRoot
     {
         _levelRoot.ActivateTrigger(index);
     }
-
+  
     private void InitializeTriggers()
     {
         foreach (Trigger trigger in _triggers)
@@ -98,4 +103,5 @@ public enum TriggetType
     ACTIVE_DIALOG,
     PASSIVE_DIALOG,
     LEVEL_ACTIVATION,
+    BUSH,
 }

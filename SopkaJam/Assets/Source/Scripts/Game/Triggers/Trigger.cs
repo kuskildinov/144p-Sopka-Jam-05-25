@@ -14,7 +14,7 @@ public class Trigger : MonoBehaviour
         _root = root;
     }
 
-    public void Activate()
+    public virtual void Activate()
     {
         _root.TryActivateTrigger(this);
     }
