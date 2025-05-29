@@ -327,7 +327,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _index: 0
   _type: 5
-  _animator: {fileID: 0}
+  _animator: {fileID: 2698885717175746958}
+  _rightDetectionTrigger: {fileID: 2235285626922155484}
+  _leftDetectionTrigger: {fileID: 3379097375609167078}
 --- !u!61 &2006986218882605230
 BoxCollider2D:
   m_ObjectHideFlags: 0

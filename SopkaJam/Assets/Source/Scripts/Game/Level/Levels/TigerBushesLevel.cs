@@ -12,6 +12,7 @@ public class TigerBushesLevel : Level
     {
         base.Initialize(levelRoot, input);
         _currentBushIndex = 0;
+        ChangeBushToSpawnTiger();
     }
 
     public override void ActivateTrigger(int index)
@@ -27,6 +28,12 @@ public class TigerBushesLevel : Level
 
     private void ChangeBushToSpawnTiger()
     {
-        //Передаем TigerSpawner два куста текущий и больше на 1
+        foreach (Bush bush in _bushes)
+        {
+            if(bush.Index == _currentBushIndex || (bush.Index + 1) == _currentBushIndex)
+            {
+                bush.ShowTiger(true);
+            }
+        }       
     }
 }
