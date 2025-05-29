@@ -33,24 +33,32 @@ public class PlayerInteractions : MonoBehaviour
         if(collision.gameObject.TryGetComponent<Trigger>(out Trigger trigger))
         {
             _player.OnPlayerEnterTrigger(trigger);
-            _currentTrigger = trigger;    
-            if (_currentTrigger.Type == TriggetType.PASSIVE_DIALOG)
-            {
-                TryActivateTrigger();
+            _currentTrigger = trigger;           
+
+            if (_currentTrigger.Type == TriggetType.PASSIVE_DIALOG || _currentTrigger.Type == TriggetType.GO_TO_LOCATION_PASSIVE)
+            {                
+                TryActivateTrigger();             
             }          
+            else if(_currentTrigger.Type == TriggetType.DETECTION || _currentTrigger.Type == TriggetType.TAKE_DAMAGE)
+            {
+                _currentTrigger = trigger;
+                _currentTrigger.Activate();
+                _currentTrigger = null;               
+            }
         }
         if (collision.gameObject.TryGetComponent<SwapHouseTrigger>(out SwapHouseTrigger swqpTrigger))
         {
-            swqpTrigger.TeleportPlayer(_player.gameObject);
+            swqpTrigger.TeleportPlayer(_player.gameObject);         
         }
         if(collision.gameObject.TryGetComponent<Bush> (out Bush bush))
         {
+           
             _currentTrigger = trigger;
             _currentTrigger.Activate();           
-            _currentTrigger = null;
+            _currentTrigger = null;          
         }        
     }
-
+   
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.TryGetComponent<Trigger>(out Trigger trigger))

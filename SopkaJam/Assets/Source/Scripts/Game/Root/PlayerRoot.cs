@@ -27,4 +27,9 @@ public class PlayerRoot : CompositeRoot
     {
         _hintsRoot.CloseAllHints();
     }
+
+    public Vector3 GetPlayerPosition()
+    {
+        return _player.transform.position;
+    }
 }

@@ -19,7 +19,12 @@ public class TriggersRoot : CompositeRoot
     {
         switch (trigger.Type)
         {
-            case TriggetType.GO_TO_LOCATION:
+            case TriggetType.GO_TO_LOCATION_ACTIVE:
+                {
+                    TryChangeLocation(trigger.Index);
+                    break;
+                }
+            case TriggetType.GO_TO_LOCATION_PASSIVE:
                 {
                     TryChangeLocation(trigger.Index);
                     break;
@@ -51,6 +56,16 @@ public class TriggersRoot : CompositeRoot
                     TryActivateLevelTrigger(trigger.Index);
                     break;
                 }
+            case TriggetType.DETECTION:
+                {
+                    TryActivateLevelTrigger(trigger.Index);
+                    break;
+                }
+            case TriggetType.TAKE_DAMAGE:
+                {
+                    TryTakeDamage(trigger.Index);
+                    break;
+                }
 
             default:
                 break;
@@ -59,7 +74,7 @@ public class TriggersRoot : CompositeRoot
   
     private void TryChangeLocation(int index)
     {
-        string sceneName = _triggersData.GetLoactionNameByIndex(index);
+        string sceneName = _triggersData.GetLoactionNameByIndex(index);        
         if (sceneName == string.Empty)
             return;
 
@@ -84,8 +99,12 @@ public class TriggersRoot : CompositeRoot
 
     private void TryActivateLevelTrigger(int index)
     {
-        _levelRoot.ActivateTrigger(index);
-        Debug.Log("TEST");
+        _levelRoot.ActivateTrigger(index);      
+    }
+
+    private void TryTakeDamage(int index)
+    {
+        Debug.Log("Получили Урон!!");
     }
   
     private void InitializeTriggers()
@@ -99,10 +118,13 @@ public class TriggersRoot : CompositeRoot
 
 public enum TriggetType
 {
-    GO_TO_LOCATION,
+    GO_TO_LOCATION_ACTIVE,
+    GO_TO_LOCATION_PASSIVE,
     TAKE_ITEM,
     ACTIVE_DIALOG,
     PASSIVE_DIALOG,
     LEVEL_ACTIVATION,
+    DETECTION,
     BUSH,
+    TAKE_DAMAGE,
 }
