@@ -30,15 +30,8 @@ public class TigerMovment : MonoBehaviour
 
     }
 
-    public void ActivateMovment()
+    public void ToggleMovment(bool value)
     {
-        _canMove = true;
+        _canMove = value;
     }
-
-    public void DeactivateMovment()
-    {
-        _canMove = false;
-    }
-
-
 }

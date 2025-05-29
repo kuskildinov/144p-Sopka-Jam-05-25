@@ -18,9 +18,10 @@ public class PlayerRoot : CompositeRoot
     public void TogglePlayerAnimation(bool value) => _player.TogglePlayerAnimation(value);
     
 
-    public void OnPlayerEnterTrigger(Trigger trigger)
+    public void OnPlayerEnterTrigger(Trigger trigger, bool showHints)
     {
-        _hintsRoot.ShowHintPanelByTrigger(trigger);
+        if(showHints)
+            _hintsRoot.ShowHintPanelByTrigger(trigger);
     }
 
     public void OnPlayerExitTrigger()

@@ -32,7 +32,7 @@ public class PlayerInteractions : MonoBehaviour
     {
         if(collision.gameObject.TryGetComponent<Trigger>(out Trigger trigger))
         {
-            _player.OnPlayerEnterTrigger(trigger);
+            _player.OnPlayerEnterTrigger(trigger,true);
             _currentTrigger = trigger;           
 
             if (_currentTrigger.Type == TriggetType.PASSIVE_DIALOG || _currentTrigger.Type == TriggetType.GO_TO_LOCATION_PASSIVE)

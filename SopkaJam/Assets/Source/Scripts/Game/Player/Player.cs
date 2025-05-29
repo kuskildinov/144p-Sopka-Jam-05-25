@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
 
     #region >>> INTERACTIONS
 
-    public void OnPlayerEnterTrigger(Trigger trigger) => _root.OnPlayerEnterTrigger(trigger);
+    public void OnPlayerEnterTrigger(Trigger trigger, bool showHints) => _root.OnPlayerEnterTrigger(trigger, showHints);
 
     public void OnPlayerExitTrigger() => _root.OnPlayerExitTrigger();
 
