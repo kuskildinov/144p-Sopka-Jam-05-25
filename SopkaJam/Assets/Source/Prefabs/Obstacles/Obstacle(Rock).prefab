@@ -95,7 +95,8 @@ GameObject:
   - component: {fileID: 2384570697324991938}
   - component: {fileID: 3643957505782263632}
   - component: {fileID: 6435037192997595830}
-  m_Layer: 0
+  - component: {fileID: 1816242156115534167}
+  m_Layer: 7
   m_Name: Obstacle(Rock)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,3 +176,30 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.1395497, y: 2.1901968}
   m_EdgeRadius: 0
+--- !u!50 &1816242156115534167
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8754276143133991936}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 100
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6

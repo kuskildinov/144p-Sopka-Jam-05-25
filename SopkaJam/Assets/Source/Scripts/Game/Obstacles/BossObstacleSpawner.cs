@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,12 +9,7 @@ public class BossObstacleSpawner : MonoBehaviour
     [SerializeField] private Obstacle _snowdriftPrefab;
     [SerializeField] private Obstacle _logPrefab;
     [SerializeField] private List<Transform> _spawnPoints;
-
-    private void Start()
-    {
-        StartCoroutine(SpawnRoutine());
-    }
-
+   
     public void SpawnObstacle(ObstacleType type, int lineIndex)
     {
         Obstacle obstacle = null;
@@ -63,15 +57,6 @@ public class BossObstacleSpawner : MonoBehaviour
         {
             Debug.LogError("Õ≈¬≈–ÕŒ ” ¿«¿Õ¿ À»Õ»ﬂ ƒÀﬂ —œ¿¬Õ¿");
             return Vector3.zero;
-        }
-    }
-
-    private IEnumerator SpawnRoutine()
-    {
-        while(true)
-        {
-            yield return new WaitForSecondsRealtime(2f);
-            SpawnObstacle(ObstacleType.ROCK,2);
         }
     }
 }
