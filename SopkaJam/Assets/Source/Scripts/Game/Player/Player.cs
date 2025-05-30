@@ -88,5 +88,6 @@ public enum PlayerState
     WALK,
     RUN,
     DASH,
+    ATTACK,
 }
 

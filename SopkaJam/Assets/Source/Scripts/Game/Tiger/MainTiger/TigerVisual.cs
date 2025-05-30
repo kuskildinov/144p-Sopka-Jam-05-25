@@ -24,32 +24,35 @@ public class TigerVisual : MonoBehaviour
     }
 
     private void OnTigerStateChanged()
-    {
+    {      
         switch (_tiger.CurrentState)
         {
             case MainTigerState.WALK:
                 {
-                    _animator.SetTrigger(WALK);
                     BackToWalkState();
                     break;
                 }
             case MainTigerState.PREPARE:
                 {
+                    _animator.SetBool(WALK, false);
                     _animator.SetTrigger(PREPARE);
                     break;
                 }
             case MainTigerState.LEFT_ATTACK:
                 {
+                    _animator.SetBool(WALK, false);
                     _animator.SetTrigger(LEFT_ATTACK);
                     break;
                 }
             case MainTigerState.RIGHT_ATTACK:
                 {
+                    _animator.SetBool(WALK, false);
                     _animator.SetTrigger(RIGHT_ATTACK);
                     break;
                 }
             case MainTigerState.MAIN_ATTACK:
                 {
+                    _animator.SetBool(WALK, false);
                     _animator.SetTrigger(MAIN_ATTACK);
                     break;
                 }  
@@ -58,8 +61,8 @@ public class TigerVisual : MonoBehaviour
 
     public void BackToWalkState()
     {
-        ResetAnimatorTriggers();
-        _tiger.ToggleMovment(true);
+        _animator.SetBool(WALK, true);
+        ResetAnimatorTriggers();       
     }
 
     private void ResetAnimatorTriggers()
