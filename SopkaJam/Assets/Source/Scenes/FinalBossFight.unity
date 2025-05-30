@@ -862,6 +862,7 @@ Transform:
   - {fileID: 1629070726}
   - {fileID: 864950102}
   - {fileID: 1564925037}
+  - {fileID: 1440340935}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &206841357
@@ -878,6 +879,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _boss: {fileID: 975360176}
   _obstacleSpawner: {fileID: 864950103}
+  _camera: {fileID: 1747729459}
   _topAttantion: {fileID: 1530499823}
   _middleAttention: {fileID: 1912236792}
   _bottomAttention: {fileID: 1214821344}
@@ -1076,6 +1078,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 384612989}
   m_CullTransparentMesh: 1
+--- !u!114 &418355101 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7274800492102980898, guid: ac072189fcb0857478de45cf33d97c07, type: 3}
+  m_PrefabInstance: {fileID: 2703147817229938885}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d94de86221f8a0d4f8f29d621117b3be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &467335871
 GameObject:
   m_ObjectHideFlags: 0
@@ -3323,6 +3336,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hintsPanel: {fileID: 953018733}
+--- !u!4 &1440340935 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4663819912193060234, guid: ac072189fcb0857478de45cf33d97c07, type: 3}
+  m_PrefabInstance: {fileID: 2703147817229938885}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1444825832 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7451773858743929981, guid: ac072189fcb0857478de45cf33d97c07, type: 3}
+  m_PrefabInstance: {fileID: 2703147817229938885}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d94de86221f8a0d4f8f29d621117b3be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1481661151
 GameObject:
   m_ObjectHideFlags: 0
@@ -3423,6 +3452,8 @@ MonoBehaviour:
   _triggersData: {fileID: 11400000, guid: 87d1de3d92dfaae45b3e95581b9f0f3b, type: 2}
   _triggers:
   - {fileID: 1311679812}
+  - {fileID: 1444825832}
+  - {fileID: 418355101}
 --- !u!1 &1527219794
 GameObject:
   m_ObjectHideFlags: 0
@@ -3740,6 +3771,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1747729456}
+  - component: {fileID: 1747729459}
   - component: {fileID: 1747729457}
   - component: {fileID: 1747729458}
   m_Layer: 0
@@ -3820,6 +3852,20 @@ MonoBehaviour:
   m_Damping: 0.5
   m_MaxWindowSize: 0
   m_Padding: 0
+--- !u!114 &1747729459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747729455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86fe11194e29e8c4cad79077015d4bd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeDuration: 0.5
+  shakeMagnitude: 0.1
 --- !u!1 &1758103120
 GameObject:
   m_ObjectHideFlags: 0
@@ -4461,19 +4507,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 206841356}
     m_Modifications:
     - target: {fileID: 352565306858341658, guid: ac072189fcb0857478de45cf33d97c07, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 16
+      value: 13.13
       objectReference: {fileID: 0}
     - target: {fileID: 623453759211388791, guid: ac072189fcb0857478de45cf33d97c07, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 16
+      value: 13.129999
       objectReference: {fileID: 0}
     - target: {fileID: 1672896741577210636, guid: ac072189fcb0857478de45cf33d97c07, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 16
+      value: 13.129999
       objectReference: {fileID: 0}
     - target: {fileID: 2701616977858344397, guid: ac072189fcb0857478de45cf33d97c07, type: 3}
       propertyPath: _topHandAnimator
@@ -4487,6 +4533,10 @@ PrefabInstance:
       propertyPath: _middleHandAnimator
       value: 
       objectReference: {fileID: 262834506}
+    - target: {fileID: 4315634289293189129, guid: ac072189fcb0857478de45cf33d97c07, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4663819912193060234, guid: ac072189fcb0857478de45cf33d97c07, type: 3}
       propertyPath: m_LocalPosition.x
       value: -28.18
@@ -4505,15 +4555,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4663819912193060234, guid: ac072189fcb0857478de45cf33d97c07, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4663819912193060234, guid: ac072189fcb0857478de45cf33d97c07, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4663819912193060234, guid: ac072189fcb0857478de45cf33d97c07, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4663819912193060234, guid: ac072189fcb0857478de45cf33d97c07, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4530,6 +4580,14 @@ PrefabInstance:
     - target: {fileID: 4971855919850179918, guid: ac072189fcb0857478de45cf33d97c07, type: 3}
       propertyPath: m_Name
       value: Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 5606424564983762962, guid: ac072189fcb0857478de45cf33d97c07, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6221019323347601280, guid: ac072189fcb0857478de45cf33d97c07, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6258776830725760837, guid: ac072189fcb0857478de45cf33d97c07, type: 3}
       propertyPath: m_Controller
@@ -4900,4 +4958,3 @@ SceneRoots:
   - {fileID: 1758103124}
   - {fileID: 1719517019}
   - {fileID: 1404414824}
-  - {fileID: 2703147817229938885}
