@@ -27,7 +27,7 @@ public class BossObstacleSpawner : MonoBehaviour
                 }
             case ObstacleType.LOG:
                 {
-                    obstacle = Instantiate(_rockPrefab, transform);                  
+                    obstacle = Instantiate(_logPrefab, transform);                  
                     break;
                 }
         }
