@@ -15,11 +15,12 @@ public class UIHintsPanel : MonoBehaviour
                     _interactionHintPanel.gameObject.SetActive(true);
                     break;
                 }
-            case TriggetType.GO_TO_LOCATION:
+            case TriggetType.GO_TO_LOCATION_ACTIVE:
                 {
                     _interactionHintPanel.gameObject.SetActive(true);
                     break;
                 }
+
             case TriggetType.LEVEL_ACTIVATION:
                 {
                     if (trigger.Index == 0)
