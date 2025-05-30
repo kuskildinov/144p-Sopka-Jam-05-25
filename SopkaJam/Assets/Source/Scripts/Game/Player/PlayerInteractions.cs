@@ -19,14 +19,13 @@ public class PlayerInteractions : MonoBehaviour
         }
     }
 
-    private void TryActivateTrigger()
+    public void TryActivateTrigger()
     {
         if (_currentTrigger == null)
             return;
-        _currentTrigger.Activate();
-        _currentTrigger.gameObject.SetActive(false);
+        _currentTrigger.Activate();      
         _currentTrigger = null;
-    }
+    }    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -35,27 +34,18 @@ public class PlayerInteractions : MonoBehaviour
             _player.OnPlayerEnterTrigger(trigger,true);
             _currentTrigger = trigger;           
 
-            if (_currentTrigger.Type == TriggetType.PASSIVE_DIALOG || _currentTrigger.Type == TriggetType.GO_TO_LOCATION_PASSIVE)
+            if (_currentTrigger.Type == TriggetType.PASSIVE_DIALOG||
+                _currentTrigger.Type == TriggetType.DETECTION ||
+                _currentTrigger.Type == TriggetType.TAKE_DAMAGE ||
+                _currentTrigger.Type == TriggetType.GO_TO_LOCATION_PASSIVE ||
+                _currentTrigger.Type == TriggetType.BUSH)
             {                
                 TryActivateTrigger();             
-            }          
-            else if(_currentTrigger.Type == TriggetType.DETECTION || _currentTrigger.Type == TriggetType.TAKE_DAMAGE)
-            {
-                _currentTrigger = trigger;
-                _currentTrigger.Activate();
-                _currentTrigger = null;               
-            }
-        }
+            }            
+        }       
         if (collision.gameObject.TryGetComponent<SwapHouseTrigger>(out SwapHouseTrigger swqpTrigger))
         {
             swqpTrigger.TeleportPlayer(_player.gameObject);         
-        }
-        if(collision.gameObject.TryGetComponent<Bush> (out Bush bush))
-        {
-           
-            _currentTrigger = trigger;
-            _currentTrigger.Activate();           
-            _currentTrigger = null;          
         }        
     }
    

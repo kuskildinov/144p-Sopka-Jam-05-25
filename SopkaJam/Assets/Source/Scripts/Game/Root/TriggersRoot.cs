@@ -70,6 +70,9 @@ public class TriggersRoot : CompositeRoot
             default:
                 break;
         }
+
+        if (trigger.NeedDisappear)
+            trigger.gameObject.SetActive(false);
     }
   
     private void TryChangeLocation(int index)

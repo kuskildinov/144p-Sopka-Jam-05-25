@@ -51,7 +51,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _index: 1
-  _type: 1
+  _type: 2
+  _needDisappeare: 0
 --- !u!61 &4284169704236559482
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -17,13 +17,12 @@ public class TigerRoot : CompositeRoot
     public void ShowTiger()
     {
         _tiger.gameObject.SetActive(true);
-        _tiger.SetNewState(MainTigerState.WALK);
-        _tiger.ToggleMovment(true);
+        _tiger.Reset();
     }
 
     public void HideTiger()
     {
-        _tiger.ToggleMovment(false);
+        _tiger.MoveToTrap();
         _tiger.gameObject.SetActive(false);
     }
 

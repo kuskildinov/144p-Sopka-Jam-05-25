@@ -91,4 +91,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _index: 0
-  _type: 3
+  _type: 4
+  _needDisappeare: 0
