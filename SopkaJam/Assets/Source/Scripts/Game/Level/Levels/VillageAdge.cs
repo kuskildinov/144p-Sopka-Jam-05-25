@@ -20,8 +20,9 @@ public class VillageAdge : Level
     private int _commentIndex;
     public override void Initialize(LevelRoot levelRoot, IInput input)
     {
-        base.Initialize(levelRoot, input);
+        base.Initialize(levelRoot, input);       
         _commentIndex = 1;
+        _canLeaveLevel = true;
     }
 
     private void Update()
@@ -85,8 +86,13 @@ public class VillageAdge : Level
     }
 
     public void LeaveScene()
-    {
+    {      
         _root.LoadSceneByName(_nextSceneName);
+    }
+
+    public override bool CheckCanLeaveLevel()
+    {
+        return true;
     }
 
     private void StartCry()

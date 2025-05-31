@@ -3446,6 +3446,8 @@ MonoBehaviour:
   _settings: {fileID: 11400000, guid: 5fb58d970db21704f9a5b2180c486542, type: 2}
   _currentMovmentType: 1
   _hintsRoot: {fileID: 1414116589}
+  _movmentOnAwake: 1
+  _dashOnAwake: 0
 --- !u!1 &1336403935
 GameObject:
   m_ObjectHideFlags: 0
