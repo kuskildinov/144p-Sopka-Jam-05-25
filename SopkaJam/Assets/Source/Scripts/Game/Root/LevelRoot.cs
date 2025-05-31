@@ -72,6 +72,7 @@ public class LevelRoot : CompositeRoot
     public void OnItemTaked(int index)
     {
         _level.OnItemTaked(index);
+        _playerRoot.OnPlayerTakeItem();
     }
 
     public void OnDialogEnded(int index)
@@ -108,6 +109,11 @@ public class LevelRoot : CompositeRoot
     public void TogglePlayerAnimation(bool value)
     {
         _playerRoot.TogglePlayerAnimation(value);
+    }
+
+    public void TogglePlayerCry(bool value)
+    {
+        _playerRoot.TogglePlayerCry(value);
     }
 
     public void ShowHintsByType(HintsType type)

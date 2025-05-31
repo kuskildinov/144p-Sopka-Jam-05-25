@@ -11,6 +11,8 @@ public class VillageAdge : Level
     [SerializeField] private FirstMeetingTiger _tiger;
     [SerializeField] private Trigger _cryTrigger;                            //TODO: вынести логику к ROOT
     [SerializeField] private string _nextSceneName;
+    [Header("Cry Settings")]
+    [SerializeField] private float _minCryTime = 3f;
     [Header("Tiger Settings")]
     [SerializeField] private float _prepareTime;
     [SerializeField] private float _jumpDuration;
@@ -96,13 +98,15 @@ public class VillageAdge : Level
     }
 
     private void StartCry()
-    {      
+    {
         _root.DeactivatePlayerMovment();
         _root.CloseHints();
+        _root.TogglePlayerCry(true);       
     }
 
     private void StopCry()
     {
+        _root.TogglePlayerCry(false);
         _root.ActivatePlayerMovment();        
         _isCtying = false;
         _cryTrigger.gameObject.SetActive(true);
@@ -125,7 +129,7 @@ public class VillageAdge : Level
     private IEnumerator CryRoutine()
     {
         StartCry();
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(_minCryTime);
         _isCtying = true;
         yield break;
     }

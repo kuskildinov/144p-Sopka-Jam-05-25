@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerRoot : CompositeRoot
@@ -39,17 +40,29 @@ public class PlayerRoot : CompositeRoot
     public void TogglePlayerMovment(bool value) => _player.TogglePlayerMovment(value);
     public void TogglePlayerDash(bool value) => _player.TogglePlayerDash(value);
     public void TogglePlayerAnimation(bool value) => _player.TogglePlayerAnimation(value);
-    
+
+    public void TogglePlayerCry(bool value)
+    {
+        if (value)
+            _player.ChangeState(PlayerState.CRY);
+        else
+            _player.ChangeState(PlayerState.IDLE);
+    }
 
     public void OnPlayerEnterTrigger(Trigger trigger, bool showHints)
     {
         if(showHints)
-            _hintsRoot.ShowHintPanelByTrigger(trigger);
+            _hintsRoot.ShowHintPanelByTrigger(trigger);       
     }
 
     public void OnPlayerExitTrigger()
     {
         _hintsRoot.CloseAllHints();
+    }
+
+    public void OnPlayerTakeItem()
+    {
+        _player.OnItemTaked();
     }
 
     public void OnPlayerTakeDamage()
@@ -88,4 +101,6 @@ public class PlayerRoot : CompositeRoot
             _levelRoot.OpenGameOverPanel();
         }
     }
+
+   
 }

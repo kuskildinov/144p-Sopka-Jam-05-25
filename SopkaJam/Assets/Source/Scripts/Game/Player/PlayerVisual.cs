@@ -8,6 +8,8 @@ public class PlayerVisual : MonoBehaviour
     private const string WALK = "Walk";
     private const string RUN = "Run";
     private const string DASH = "Dash";
+    private const string CRY = "Cry";
+    private const string PICK_UP = "PickUp";
 
     private Player _player;
     private Animator _animator;
@@ -108,6 +110,16 @@ public class PlayerVisual : MonoBehaviour
                     _animator.SetTrigger(DASH);
                     break;
                 }
+            case PlayerState.CRY:
+                {
+                    _animator.SetBool(CRY,true);
+                    break;
+                }
+            case PlayerState.PICK_UP:
+                {
+                    _animator.SetTrigger(PICK_UP);
+                    break;
+                }
             default:
                 break;
         }
@@ -119,6 +131,7 @@ public class PlayerVisual : MonoBehaviour
         _animator.SetBool(WALK, false);
         _animator.SetBool(RUN, false);
         _animator.SetBool(DASH, false);
+        _animator.SetBool(CRY, false);
     }
     #endregion
 
