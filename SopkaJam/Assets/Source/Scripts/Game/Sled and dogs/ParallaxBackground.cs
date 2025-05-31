@@ -6,32 +6,79 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 public class ParallaxBackground : MonoBehaviour
 {
     public float[] layerSpeeds; // Скорости для каждого слоя
-    private Transform[] layers;  // Ссылки на слои
-    public float spriteWidth = 48f;
+    public Transform[] layers;  // Ссылки на слои
 
-    void Start()
-    {
-        // Получаем все дочерние объекты (слои)
-        layers = new Transform[transform.childCount];
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            layers[i] = transform.GetChild(i);
-        }
-    }
+    public TimerToEnd timerToEnd;
+    private bool timerEnd;
+    private bool houseMove;
+    private float timeToStop = 3f;
+
+    private float spriteWidth = 48f;
+
 
     void Update()
     {
-        // Двигаем каждый слой с своей скоростью
+        timerEnd = timerToEnd._timeIsOver;
+        houseMove = timerToEnd._stopHouse;
         for (int i = 0; i < layers.Length; i++)
         {
-            float speed = layerSpeeds[i];
-            layers[i].position += Vector3.left * speed * Time.deltaTime;
+            Movment(layers[i], layerSpeeds[i]);
+        }
 
-            // Телепортация слоя для бесконечности
+        if (timerEnd == false)
+        {
+            IncreaseSpeedByTime();
+        }
+        else
+        {
+            if (houseMove == true)
+            {
+                DecreaseSpeedOnFinish();
+            }           
+            
+        }
+
+        for (int i = 0; i < layers.Length; i++)
+        {
+            LayersTeleportation();
+        }
+    }
+
+    private void Movment(Transform layer, float speed)
+    {
+        layer.position += Vector3.left * speed * Time.deltaTime;
+    }
+
+    private void LayersTeleportation()
+    {
+        for (int i = 0; i < layers.Length; i++)
+        {
             if (layers[i].position.x < -48) // Укажи нужное значение
             {
                 layers[i].position += Vector3.right * (spriteWidth * 2); // Смести вперёд
             }
         }
+
+
     }
+
+    private void IncreaseSpeedByTime()
+    {
+        for (int i = 0; i < layers.Length; i++)
+        {
+            layerSpeeds[i] += 0.0005f;
+        }
+    }
+
+    private void DecreaseSpeedOnFinish()
+    {
+
+        for (int i = 0; i < layers.Length; i++)
+        {
+            layerSpeeds[i] = 0;
+        }
+    }
+
+
+    
 }
