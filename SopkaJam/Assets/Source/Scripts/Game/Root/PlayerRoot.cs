@@ -14,7 +14,10 @@ public class PlayerRoot : CompositeRoot
     [Header("Links")]
     [SerializeField] private LevelRoot _levelRoot;
     [SerializeField] private HintsRoot _hintsRoot;
+    [SerializeField] private PlayerUI _playerUI;
+
     private IInput _input;
+    private int _currentLifeCount;
     public override void Compose()
     {
         _input = new DesktopInput();
@@ -30,6 +33,7 @@ public class PlayerRoot : CompositeRoot
         else
             TogglePlayerDash(false);
 
+        _currentLifeCount = _playerLifeCount;
     }
 
     public void TogglePlayerMovment(bool value) => _player.TogglePlayerMovment(value);
@@ -51,7 +55,9 @@ public class PlayerRoot : CompositeRoot
     public void OnPlayerTakeDamage()
     {
         Debug.Log("Получили Урон!!");
-        _levelRoot.OpenGameOverPanel();
+        _currentLifeCount--;
+        _playerUI.UpdateLifeCount(_currentLifeCount);
+        CheckPlayerLifeCount();
     }
 
     public Vector3 GetPlayerPosition()
@@ -71,5 +77,14 @@ public class PlayerRoot : CompositeRoot
         TogglePlayerMovment(false);
         TogglePlayerDash(false);
 
+    }
+
+    private void CheckPlayerLifeCount()
+    {
+        if(_currentLifeCount <= 0)
+        {
+            _player.ChangeState(PlayerState.DEAD);
+            _levelRoot.OpenGameOverPanel();
+        }
     }
 }

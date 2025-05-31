@@ -89,5 +89,6 @@ public enum PlayerState
     RUN,
     DASH,
     ATTACK,
+    DEAD,
 }
 
