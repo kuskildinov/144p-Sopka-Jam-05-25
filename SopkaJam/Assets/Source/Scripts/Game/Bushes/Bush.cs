@@ -9,8 +9,7 @@ public class Bush : Trigger
     private const string LEFT_OFF = "LeftOff";
     private const string LEFT_ATTACK = "LeftAttack";
     private const string RIGHT_ATTACK = "RightAttack";    
-    [SerializeField] private Animator _animator;
-    [SerializeField] private float _timeBeforeShowNextTiger = 1f;
+    [SerializeField] private Animator _animator;   
     [SerializeField] private float _holdTigerTime = 3f;
     [SerializeField] private float _animationDuration = 1.5f;
 

@@ -5,10 +5,7 @@ using UnityEngine;
 public class TigerBushesLevel : Level
 {
     [SerializeField] private List<Bush> _bushes;
-    [SerializeField] private float _hideTigerTime = 2f;
-    [SerializeField] private float _onBashTigerShowTime = 5f;
-    [SerializeField] private float _timeBetweenTigerShow = 6f;
-
+      
     private Bush _currentBush;
     private Bush _neighbourBush;
     private int _currentBushIndex;

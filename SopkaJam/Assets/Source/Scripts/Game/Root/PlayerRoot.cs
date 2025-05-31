@@ -2,12 +2,18 @@ using UnityEngine;
 
 public class PlayerRoot : CompositeRoot
 {
+    [Header("Player Settings")]
     [SerializeField] private Player _player;
     [SerializeField] private PlayerSettingsSO _settings;
+    [Header("Movment Settings")]
     [SerializeField] private MovmentType _currentMovmentType;
-    [SerializeField] private HintsRoot _hintsRoot;
     [SerializeField] private bool _movmentOnAwake;
     [SerializeField] private bool _dashOnAwake;
+    [Header("Player Health Settings")]
+    [SerializeField] private int _playerLifeCount = 3;
+    [Header("Links")]
+    [SerializeField] private LevelRoot _levelRoot;
+    [SerializeField] private HintsRoot _hintsRoot;
     private IInput _input;
     public override void Compose()
     {
@@ -40,6 +46,12 @@ public class PlayerRoot : CompositeRoot
     public void OnPlayerExitTrigger()
     {
         _hintsRoot.CloseAllHints();
+    }
+
+    public void OnPlayerTakeDamage()
+    {
+        Debug.Log("Получили Урон!!");
+        _levelRoot.OpenGameOverPanel();
     }
 
     public Vector3 GetPlayerPosition()

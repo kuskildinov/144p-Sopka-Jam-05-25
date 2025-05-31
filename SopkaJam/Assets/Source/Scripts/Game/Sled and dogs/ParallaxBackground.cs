@@ -9,8 +9,7 @@ public class ParallaxBackground : MonoBehaviour
 
     public TimerToEnd timerToEnd;
     private bool timerEnd;
-    private bool houseMove;
-    private float timeToStop = 3f;
+    private bool houseMove;   
 
     private float spriteWidth = 48f;
 

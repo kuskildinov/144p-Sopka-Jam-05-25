@@ -51,12 +51,12 @@ MonoBehaviour:
   _leftHandTrigger: {fileID: 3853893244236049349}
   _rightHandTrigger: {fileID: 834773469524780907}
   _mainAttackTrigger: {fileID: 2004828922863777847}
-  _damageTrigger: {fileID: 0}
+  _damageTrigger: {fileID: 1457409760287276765}
   _movmentSpeed: 0.5
   _handAttackTounBeforeMainAttack: 3
-  _attackTime: 0
+  _attackTime: 1
   _timeBeforeCanAttack: 2
-  _timeBeforeCanAttackAfterTrap: 0
+  _timeBeforeCanAttackAfterTrap: 5
   _prepareTimeForHandAttack: 1
   _prepareTimeForMainAttack: 1
 --- !u!1 &1622443142479760373
@@ -529,15 +529,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1033143006204715028, guid: c37a46a9bf32ce74e8172efdd74f3d54, type: 3}
+      propertyPath: _tiger
+      value: 
+      objectReference: {fileID: 8441746357771466666}
+    - target: {fileID: 6869255577477948857, guid: c37a46a9bf32ce74e8172efdd74f3d54, type: 3}
+      propertyPath: m_Size.x
+      value: 7.069827
+      objectReference: {fileID: 0}
+    - target: {fileID: 6869255577477948857, guid: c37a46a9bf32ce74e8172efdd74f3d54, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.33443213
+      objectReference: {fileID: 0}
     - target: {fileID: 7533330350233985008, guid: c37a46a9bf32ce74e8172efdd74f3d54, type: 3}
       propertyPath: m_Name
       value: TigerDamageTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 7533330350233985008, guid: c37a46a9bf32ce74e8172efdd74f3d54, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c37a46a9bf32ce74e8172efdd74f3d54, type: 3}
+--- !u!61 &1457409760287276765 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 6869255577477948857, guid: c37a46a9bf32ce74e8172efdd74f3d54, type: 3}
+  m_PrefabInstance: {fileID: 5435209202600352612}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5424079143592802671 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 12260410213900811, guid: c37a46a9bf32ce74e8172efdd74f3d54, type: 3}
@@ -557,7 +578,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 7571c575a7838724facf54c806093b64, type: 2}
     - target: {fileID: 7305943000745370294, guid: 7a77eb50e21b1f945a81d96a54606448, type: 3}
       propertyPath: m_Name
-      value: TigrEnFace
+      value: Visual
       objectReference: {fileID: 0}
     - target: {fileID: 8479140823347673813, guid: 7a77eb50e21b1f945a81d96a54606448, type: 3}
       propertyPath: m_LocalScale.x

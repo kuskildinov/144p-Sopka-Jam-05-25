@@ -17,7 +17,7 @@ public class MainTiger : MonoBehaviour
     [Header("Attack Settings")]
     [SerializeField] private int _handAttackTounBeforeMainAttack;
     [SerializeField] private float _attackTime;
-    [SerializeField] private float _timeBeforeCanAttack;
+    [SerializeField] private float _timeBeforeAgainCanAttack;
     [SerializeField] private float _timeBeforeCanAttackAfterTrap;
     [SerializeField] private float _prepareTimeForHandAttack;
     [SerializeField] private float _prepareTimeForMainAttack;
@@ -126,36 +126,40 @@ public class MainTiger : MonoBehaviour
             case 1:
                 {
                     HideHandAttackTriggers();
+                    HideMainAttackTrigger();
                     yield return new WaitForSecondsRealtime(_prepareTimeForHandAttack);
                     SetNewState(MainTigerState.RIGHT_ATTACK);
                     _handAttackCount++;
                     yield return new WaitForSecondsRealtime(_attackTime);
                     BackToWalk();
-                    yield return new WaitForSecondsRealtime(_timeBeforeCanAttack);
+                    yield return new WaitForSecondsRealtime(_timeBeforeAgainCanAttack);
                     ShowHandAttackTriggers();
                     break;
                 }
             case 2:
                 {
+                    HideMainAttackTrigger();
+                    HideHandAttackTriggers();
                     yield return new WaitForSecondsRealtime(_prepareTimeForMainAttack);                   
                     SetNewState(MainTigerState.MAIN_ATTACK);
                     _handAttackCount = 0;
                     yield return new WaitForSecondsRealtime(_attackTime);
                     BackToWalk();
-                    yield return new WaitForSecondsRealtime(_timeBeforeCanAttack);
+                    yield return new WaitForSecondsRealtime(_timeBeforeAgainCanAttack);
                     ShowHandAttackTriggers();
-                    HideMainAttackTrigger();
+                    
                     break;
                 }
             case 3:
                 {
                     HideHandAttackTriggers();
+                    HideMainAttackTrigger();
                     yield return new WaitForSecondsRealtime(_prepareTimeForHandAttack);                   
                     SetNewState(MainTigerState.LEFT_ATTACK);
                     _handAttackCount++;
                     yield return new WaitForSecondsRealtime(_attackTime);
                     BackToWalk();
-                    yield return new WaitForSecondsRealtime(_timeBeforeCanAttack);
+                    yield return new WaitForSecondsRealtime(_timeBeforeAgainCanAttack);
                     ShowHandAttackTriggers();
                     break;
                 } 
@@ -165,14 +169,19 @@ public class MainTiger : MonoBehaviour
 
     private IEnumerator HideTigerRoutine()
     {
+        HideHandAttackTriggers();
+        HideMainAttackTrigger();
+        HideDamageTrigger();
         SetNewState(MainTigerState.WALK);
         yield return null;      
         ToggleMovment(false);
     }
 
     private IEnumerator ResetTigerRoutine()
-    {       
+    {
+        SetNewState(MainTigerState.STAN);
         yield return new WaitForSecondsRealtime(_timeBeforeCanAttackAfterTrap);
+        SetNewState(MainTigerState.WALK);
         BackToWalk();
         ShowHandAttackTriggers();
         HideMainAttackTrigger();
@@ -188,5 +197,6 @@ public enum MainTigerState
     PREPARE,
     LEFT_ATTACK,
     RIGHT_ATTACK,
-    MAIN_ATTACK
+    MAIN_ATTACK,
+    STAN,
 }

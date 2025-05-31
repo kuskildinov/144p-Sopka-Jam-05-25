@@ -112,7 +112,7 @@ public class TriggersRoot : CompositeRoot
 
     private void TryTakeDamage(int index)
     {
-        Debug.Log("Получили Урон!!");
+        _playerRoot.OnPlayerTakeDamage();        
     }
 
     private void TryAttack(int index)
