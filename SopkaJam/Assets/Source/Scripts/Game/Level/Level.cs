@@ -28,4 +28,9 @@ public class Level : MonoBehaviour
     {
 
     }
+
+    public virtual bool CheckCanLeaveLevel()
+    {
+        return false;
+    }
 }

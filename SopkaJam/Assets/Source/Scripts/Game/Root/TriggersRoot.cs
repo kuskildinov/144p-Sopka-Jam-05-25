@@ -66,10 +66,18 @@ public class TriggersRoot : CompositeRoot
                     TryTakeDamage(trigger.Index);
                     break;
                 }
+            case TriggetType.ATTACK:
+                {
+                    TryAttack(trigger.Index);
+                    break;
+                }
 
             default:
                 break;
         }
+
+        if (trigger.NeedDisappear)
+            trigger.gameObject.SetActive(false);
     }
   
     private void TryChangeLocation(int index)
@@ -106,6 +114,13 @@ public class TriggersRoot : CompositeRoot
     {
         Debug.Log("Получили Урон!!");
     }
+
+    private void TryAttack(int index)
+    {
+        Debug.Log("Вызывть анимацию атаки у игрока");
+
+        _levelRoot.ActivateTrigger(index);
+    }
   
     private void InitializeTriggers()
     {
@@ -127,4 +142,5 @@ public enum TriggetType
     DETECTION,
     BUSH,
     TAKE_DAMAGE,
+    ATTACK,
 }

@@ -26,6 +26,17 @@ public class LevelRoot : CompositeRoot
         _dialogsRoot.DialogEnded -= OnDialogEnded;
     }
 
+    public void StartGame()
+    {
+        ActivatePlayerMovment();
+        TogglePlayerAnimation(true);
+    }
+
+    public void OnCutSceneStarted()
+    {
+        DeactivatePlayerMovment();
+    }
+
     public void LoadSceneByName(string sceneName)
     {
         if (CheckCanLraveLevel())
@@ -85,7 +96,7 @@ public class LevelRoot : CompositeRoot
    
     private bool CheckCanLraveLevel()
     {
-        if (_level.CanLeaveLevel)
+        if (_level.CheckCanLeaveLevel())
             return true;
         else
             return false;

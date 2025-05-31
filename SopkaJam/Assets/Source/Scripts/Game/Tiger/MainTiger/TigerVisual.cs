@@ -3,6 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class TigerVisual : MonoBehaviour
 {
+    private const string WALK = "Walk";
     private const string PREPARE = "Prepare";
     private const string LEFT_ATTACK = "LeftAttack";
     private const string RIGHT_ATTACK = "RightAttack";
@@ -23,31 +24,35 @@ public class TigerVisual : MonoBehaviour
     }
 
     private void OnTigerStateChanged()
-    {
+    {      
         switch (_tiger.CurrentState)
         {
             case MainTigerState.WALK:
                 {
-                    ResetAnimatorTriggers();
+                    BackToWalkState();
                     break;
                 }
             case MainTigerState.PREPARE:
                 {
+                    _animator.SetBool(WALK, false);
                     _animator.SetTrigger(PREPARE);
                     break;
                 }
             case MainTigerState.LEFT_ATTACK:
                 {
+                    _animator.SetBool(WALK, false);
                     _animator.SetTrigger(LEFT_ATTACK);
                     break;
                 }
             case MainTigerState.RIGHT_ATTACK:
                 {
+                    _animator.SetBool(WALK, false);
                     _animator.SetTrigger(RIGHT_ATTACK);
                     break;
                 }
             case MainTigerState.MAIN_ATTACK:
                 {
+                    _animator.SetBool(WALK, false);
                     _animator.SetTrigger(MAIN_ATTACK);
                     break;
                 }  
@@ -56,8 +61,8 @@ public class TigerVisual : MonoBehaviour
 
     public void BackToWalkState()
     {
-        _tiger.SetNewState(MainTigerState.WALK);
-        _tiger.ToggleMovment(true);
+        _animator.SetBool(WALK, true);
+        ResetAnimatorTriggers();       
     }
 
     private void ResetAnimatorTriggers()

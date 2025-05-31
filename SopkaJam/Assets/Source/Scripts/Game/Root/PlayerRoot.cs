@@ -6,11 +6,24 @@ public class PlayerRoot : CompositeRoot
     [SerializeField] private PlayerSettingsSO _settings;
     [SerializeField] private MovmentType _currentMovmentType;
     [SerializeField] private HintsRoot _hintsRoot;
+    [SerializeField] private bool _movmentOnAwake;
+    [SerializeField] private bool _dashOnAwake;
     private IInput _input;
     public override void Compose()
     {
         _input = new DesktopInput();
         _player.Initialize(this,_input, _settings, _currentMovmentType);
+
+        if (_movmentOnAwake)
+            TogglePlayerMovment(true);
+        else
+            TogglePlayerMovment(false);
+
+        if (_dashOnAwake)
+            TogglePlayerDash(true);
+        else
+            TogglePlayerDash(false);
+
     }
 
     public void TogglePlayerMovment(bool value) => _player.TogglePlayerMovment(value);

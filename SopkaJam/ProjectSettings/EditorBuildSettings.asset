@@ -6,15 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Source/Scenes/StartHouseScene.unity
+    path: Assets/Source/Scenes/1.MainMenuScene.unity
+    guid: 753cfcfc409f1d944b47370824ee0d54
+  - enabled: 1
+    path: Assets/Source/Scenes/CutScene_1.unity
+    guid: c21789ae5d31aa442aaa45b30f733142
+  - enabled: 1
+    path: Assets/Source/Scenes/3.StartHouseScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Source/Scenes/StartVillageScene.unity
-    guid: ba133348973665f4c9e2583c546fcf21
+    path: Assets/Source/Scenes/4.VillageAdge.unity
+    guid: 058f6f48bdef8bd48a93741cbdc0754b
   - enabled: 1
-    path: Assets/Source/Scenes/TigerBushes.unity
+    path: Assets/Source/Scenes/5.TigerBushes.unity
     guid: 7e18009ee1304e14e81ece2eb628f385
   - enabled: 1
-    path: Assets/Source/Scenes/TigerFight.unity
+    path: Assets/Source/Scenes/6.TigerFight.unity
     guid: 0914f9c69fc421a48a58c5e8f286c5a7
+  - enabled: 1
+    path: Assets/Source/Scenes/Scene 8.unity
+    guid: 859c1349041787a4c86004bf9993933e
+  - enabled: 1
+    path: Assets/Source/Scenes/10.FinalBossFight.unity
+    guid: 9cc6fc54d53609a4fad6a5637a324b74
   m_configObjects: {}

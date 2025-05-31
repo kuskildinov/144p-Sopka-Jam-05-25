@@ -3,6 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class PlayerVisual : MonoBehaviour
 {
+    [SerializeField] private bool _needRotate = true;
     private const string IDLE = "Idle";
     private const string WALK = "Walk";
     private const string RUN = "Run";
@@ -31,7 +32,8 @@ public class PlayerVisual : MonoBehaviour
     private void Update()
     {
         ReadInput();
-        CheckLookDirection();
+        if(_needRotate)
+            CheckLookDirection();
     }
 
     #region >>> ROTATION

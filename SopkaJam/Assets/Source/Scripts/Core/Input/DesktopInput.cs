@@ -21,4 +21,9 @@ public class DesktopInput : IInput
     {
         return Input.GetMouseButtonDown(1);
     }
+
+    public bool AnyKeyDown()
+    {
+        return Input.anyKey;
+    }
 }

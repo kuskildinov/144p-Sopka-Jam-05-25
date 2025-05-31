@@ -4,4 +4,5 @@ public interface IInput
     public float VerticalInput();
     public bool Interaction();
     public bool Dash();
+    public bool AnyKeyDown();
 }
