@@ -76,6 +76,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7850312066511461917}
     m_Modifications:
+    - target: {fileID: 105754927986854252, guid: 72a18f8c2ac3dbc41a90260bfaf11cdd, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3455384564698196489, guid: 72a18f8c2ac3dbc41a90260bfaf11cdd, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.7
@@ -132,6 +136,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3908508018871113929, guid: 72a18f8c2ac3dbc41a90260bfaf11cdd, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4556486276550718058, guid: 72a18f8c2ac3dbc41a90260bfaf11cdd, type: 3}
       propertyPath: m_Name
       value: TigrSide
@@ -140,6 +148,14 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 9f79a0c405ef37848a5cdb3d28c2035b, type: 2}
+    - target: {fileID: 6882543282601324586, guid: 72a18f8c2ac3dbc41a90260bfaf11cdd, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6882543282601324586, guid: 72a18f8c2ac3dbc41a90260bfaf11cdd, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
