@@ -62,7 +62,7 @@ public class ParallaxBackground : MonoBehaviour
 
     private void IncreaseSpeedByTime()
     {
-        for (int i = 0; i < layers.Length; i++)
+        for (int i = 0; i < layers.Length-1; i++)
         {
             layerSpeeds[i] += 0.0005f;
         }
@@ -71,7 +71,7 @@ public class ParallaxBackground : MonoBehaviour
     private void DecreaseSpeedOnFinish()
     {
 
-        for (int i = 0; i < layers.Length; i++)
+        for (int i = 0; i < layers.Length-1; i++)
         {
             layerSpeeds[i] = 0;
         }
