@@ -7,6 +7,7 @@ public class StartHouseLevel : Level
     [SerializeField] private int _itemToTakeCount;
    
     private int _takedItemCounter;
+    private int _lastMotherComment = 6;
     public override void Initialize(LevelRoot levelRoot, IInput input)
     {
         base.Initialize(levelRoot, input);
@@ -23,8 +24,13 @@ public class StartHouseLevel : Level
     {
         if(index == 0)
         {
-            var rand = Random.Range(3, 6);
-            _root.TryActivateCommentByIndex(rand);
+            if (_lastMotherComment >= 6)
+                _lastMotherComment = 2;
+            if (_lastMotherComment < 5)
+                _lastMotherComment++;
+            else
+                _lastMotherComment = 3;
+            _root.TryActivateCommentByIndex(_lastMotherComment);
         }
     }
 
