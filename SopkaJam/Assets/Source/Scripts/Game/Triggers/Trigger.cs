@@ -11,7 +11,7 @@ public class Trigger : MonoBehaviour
     public int Index => _index;
     public TriggetType Type => _type;
 
-    public void Initialize(TriggersRoot root)
+    public virtual void Initialize(TriggersRoot root)
     {
         _root = root;
     }

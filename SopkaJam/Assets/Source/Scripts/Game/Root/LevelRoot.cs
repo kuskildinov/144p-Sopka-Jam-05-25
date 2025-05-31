@@ -8,9 +8,13 @@ public class LevelRoot : CompositeRoot
     [SerializeField] private DialogsRoot _dialogsRoot;
     [SerializeField] private HintsRoot _hintsRoot;
     [SerializeField] private Level _level;
+    [SerializeField] private PausePanel _pausePanel;
     [SerializeField] private Fade _fadeUI;
 
     private IInput _input;
+    private bool _isPaused;
+
+    public bool IsPaused => _isPaused;
     
     public override void Compose()
     {
@@ -18,6 +22,7 @@ public class LevelRoot : CompositeRoot
             return;
         _input = new DesktopInput();
         _level.Initialize(this, _input);
+        _pausePanel.Initialize(this,_input);
         _dialogsRoot.DialogEnded += OnDialogEnded;
     }
 
@@ -30,6 +35,24 @@ public class LevelRoot : CompositeRoot
     {
         ActivatePlayerMovment();
         TogglePlayerAnimation(true);
+        Time.timeScale = 1f;
+        _isPaused = false;
+    }
+
+    public void ResumeGame()
+    {
+        _playerRoot.ResumeGame();
+        Time.timeScale = 1f;
+        _isPaused = false;
+        _level.Resume();
+    }
+
+    public void PauseGame()
+    {
+        _playerRoot.PauseGame();
+        Time.timeScale = 0f;
+        _isPaused = true;
+        _level.Pause();
     }
 
     public void OnCutSceneStarted()
@@ -92,6 +115,11 @@ public class LevelRoot : CompositeRoot
     public void CloseHints()
     {
         _hintsRoot.CloseAllHints();
+    }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene(1);
     }
    
     private bool CheckCanLraveLevel()

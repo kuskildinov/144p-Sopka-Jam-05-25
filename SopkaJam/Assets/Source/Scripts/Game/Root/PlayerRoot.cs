@@ -46,4 +46,18 @@ public class PlayerRoot : CompositeRoot
     {
         return _player.transform.position;
     }
+
+    public void ResumeGame()
+    {
+        TogglePlayerMovment(true);
+        if (_dashOnAwake)
+            TogglePlayerDash(true);
+    }
+
+    public void PauseGame()
+    {
+        TogglePlayerMovment(false);
+        TogglePlayerDash(false);
+
+    }
 }

@@ -5,4 +5,5 @@ public interface IInput
     public bool Interaction();
     public bool Dash();
     public bool AnyKeyDown();
+    public bool Pause();
 }

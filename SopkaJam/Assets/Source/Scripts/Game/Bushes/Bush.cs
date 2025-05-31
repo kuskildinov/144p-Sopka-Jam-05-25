@@ -8,55 +8,72 @@ public class Bush : Trigger
     private const string LEFT_ON = "LeftOn";
     private const string LEFT_OFF = "LeftOff";
     private const string LEFT_ATTACK = "LeftAttack";
-    private const string RIGHT_ATTACK = "RightAttack";
+    private const string RIGHT_ATTACK = "RightAttack";    
+    [SerializeField] private Animator _animator;
+    [SerializeField] private float _timeBeforeShowNextTiger = 1f;
+    [SerializeField] private float _holdTigerTime = 3f;
+    [SerializeField] private float _animationDuration = 1.5f;
 
-    private const int ShowAnimationDuration = 1;
+    private TigerBushesLevel _level;   
+    
+   public void SetLevel(TigerBushesLevel level)
+    {
+        _level = level;       
+    }
 
-    [SerializeField] private Animator _animator;  
-    [SerializeField] private float _holdTigerTime = 3f;   
-
+    #region >>> SHOW HIDE
     public void ShowTiger(bool isLeft)
-    {
+    {       
         StartCoroutine(ShowTigerRoutine(isLeft));
-    }
+    } 
 
-    public void HideTigers()
+    public void OnTigerHide()
     {
-        _animator.SetTrigger(RIGHT_OFF);
-        _animator.SetTrigger(LEFT_OFF);
-        StartCoroutine(ResetAniamtorRoutine());
-    }
-
-    public void Attack(bool isLeft)
-    {
-        if(isLeft)
-        {
-            _animator.SetTrigger(LEFT_ATTACK);
-          
-        }
-        else
-        {
-            _animator.SetTrigger(RIGHT_ATTACK);
-          
-        }
+        _level.OnTigerHide(this);
     }
 
     private IEnumerator ShowTigerRoutine(bool isLeft)
     {
-        if(isLeft)
-        {
+        if (isLeft)
+        {           
             _animator.SetTrigger(LEFT_ON);
-            Physics.SyncTransforms();
+            yield return new WaitForSecondsRealtime(_holdTigerTime);
+            _animator.SetTrigger(LEFT_OFF);
+            yield return new WaitForSecondsRealtime(_animationDuration);
+        }
+        else
+        {           
+            _animator.SetTrigger(RIGHT_ON);
+            yield return new WaitForSecondsRealtime(_holdTigerTime);
+            _animator.SetTrigger(RIGHT_OFF);
+            yield return new WaitForSecondsRealtime(_animationDuration);
+        }
+        
+        yield break;
+    }
+    #endregion
+
+    #region >>> ATTACK
+
+    public void Attack(bool isLeft)
+    {
+        StartCoroutine(AttackRoutine(isLeft));
+    }
+
+    private IEnumerator AttackRoutine(bool isLeft)
+    {
+        if (isLeft)
+        {
+            _animator.SetTrigger(LEFT_ATTACK);
         }
         else
         {
-            _animator.SetTrigger(RIGHT_ON);
-            Physics.SyncTransforms();
-        }
+            _animator.SetTrigger(RIGHT_ATTACK);
 
-        yield return new WaitForSecondsRealtime(_holdTigerTime);
-        HideTigers();
+        }      
+        yield break;
     }
+    #endregion
 
     private IEnumerator ResetAniamtorRoutine()
     {

@@ -5,14 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuPanel : MonoBehaviour
 {
-    private const int FIRST_SCENE_INDEX = 1;
-    private const int CHAPTER_ONE_INDEX = 2;
-    private const int CHAPTER_TWO_INDEX = 5;
-    private const int CHAPTER_TREE_INDEX = 6;
+    private const int FIRST_SCENE_INDEX = 2;
+    private const int CHAPTER_ONE_INDEX = 3;
+    private const int CHAPTER_TWO_INDEX = 4;
+    private const int CHAPTER_TREE_INDEX = 9;
         
-    [Header("ScreeSaver Settings")]
-    [SerializeField] private ScreenSaver _screenSaver;
-    [SerializeField] private float _screesaverShowTime;
+    
     [Header("Panels")]
     [SerializeField] private GameObject _mainMenuPanel;
     [SerializeField] private GameObject _selectChapterPanel;
@@ -26,9 +24,7 @@ public class MainMenuPanel : MonoBehaviour
     [SerializeField] private Button _chapter_2_Button;
     [SerializeField] private Button _chapter_3_Button; 
    public void Initialize()
-    {
-        StartCoroutine(ScreenSaverRoutine());
-
+    {       
 #if UNITY_STANDALONE
         _exitgameButton.gameObject.SetActive(true);
 #else
@@ -99,18 +95,7 @@ public class MainMenuPanel : MonoBehaviour
     }
 
     #endregion
-
-    private IEnumerator ScreenSaverRoutine()
-    {
-        _screenSaver.gameObject.SetActive(true);
-        yield return new WaitForSecondsRealtime(_screesaverShowTime);
-        _screenSaver.Close();
-        yield return new WaitForSecondsRealtime(_screesaverShowTime);
-        _screenSaver.gameObject.SetActive(false);
-        _mainMenuPanel.gameObject.SetActive(true);
-
-        yield break;
-    }
+        
 
     private IEnumerator StartGameFadeRoutin(int sceneIndex)
     {

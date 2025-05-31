@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CutScenePanel : MonoBehaviour
 {
-    private const float PAGE_FADE_OUT_TIME = 2f;
+    private const float PAGE_FADE_TIME = 3f;
 
     [SerializeField] private List<CutScenePage> _cutScenePages;
     private CutSceneRoot _root;
@@ -16,8 +16,8 @@ public class CutScenePanel : MonoBehaviour
         _root = root;
         _input = input;
         _currentPageIndex = 0;
-        _cutScenePages[0].gameObject.SetActive(true);       
-        _cutSceneOpend = true;
+        StartCoroutine(OpenFirstPageRoutine());
+     
     }
 
     private void Update()
@@ -34,18 +34,31 @@ public class CutScenePanel : MonoBehaviour
 
     private void TryOpenNextPage()
     {
-        StartCoroutine(OpenPageRoutine());
+        StartCoroutine(OpenNextPageRoutine());
     }
-    private IEnumerator OpenPageRoutine()
+
+    private IEnumerator OpenFirstPageRoutine()
+    {
+        _cutScenePages[_currentPageIndex].gameObject.SetActive(true);
+        yield return null;
+        _cutScenePages[_currentPageIndex].Open();
+        yield return new WaitForSecondsRealtime(PAGE_FADE_TIME);
+        _cutSceneOpend = true;
+        yield break;
+    }
+    private IEnumerator OpenNextPageRoutine()
     {
         _cutScenePages[_currentPageIndex].Close();
-        yield return new WaitForSecondsRealtime(PAGE_FADE_OUT_TIME);
+        yield return new WaitForSecondsRealtime(PAGE_FADE_TIME);
         _cutScenePages[_currentPageIndex].gameObject.SetActive(false);
         _currentPageIndex++;
+        yield return null;
         if(_currentPageIndex < _cutScenePages.Count)
         {
             _cutScenePages[_currentPageIndex].gameObject.SetActive(true);
-            yield return new WaitForSecondsRealtime(2f);
+            yield return null;
+            _cutScenePages[_currentPageIndex].Open();
+            yield return new WaitForSecondsRealtime(PAGE_FADE_TIME);
             _cutSceneOpend = true;
         }
         else
