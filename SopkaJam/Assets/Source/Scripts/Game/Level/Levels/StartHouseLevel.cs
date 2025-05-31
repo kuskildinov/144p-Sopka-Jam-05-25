@@ -5,6 +5,7 @@ using UnityEngine;
 public class StartHouseLevel : Level
 {   
     [SerializeField] private int _itemToTakeCount;
+    [SerializeField] private GameObject _spear;
    
     private int _takedItemCounter;
     private int _lastMotherComment = 6;
@@ -16,6 +17,10 @@ public class StartHouseLevel : Level
 
     public override void OnItemTaked(int index)
     {
+        if(index == 2)
+        {
+            ShowSpearOnPlayer();
+        }
         _takedItemCounter++;
         CheckAllItemsCollected();
     }
@@ -48,7 +53,6 @@ public class StartHouseLevel : Level
         }
     }
 
-
     private void CheckAllItemsCollected()
     {
         if (_takedItemCounter >= _itemToTakeCount)
@@ -59,6 +63,11 @@ public class StartHouseLevel : Level
         {
             _canLeaveLevel = false;           
         }
+    }
+
+    private void ShowSpearOnPlayer()
+    {
+        _spear.gameObject.SetActive(true);
     }
 
 
