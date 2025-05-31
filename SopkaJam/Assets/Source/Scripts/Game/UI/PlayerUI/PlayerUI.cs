@@ -11,7 +11,8 @@ public class PlayerUI : MonoBehaviour
     {
         for (int i = 0; i < _lifecounters.Length - newLifeCount; i++)
         {
-            _lifecounters[i].gameObject.SetActive(false);
+            if(_lifecounters[i] != null)
+                _lifecounters[i].gameObject.SetActive(false);
         }
     }
 }

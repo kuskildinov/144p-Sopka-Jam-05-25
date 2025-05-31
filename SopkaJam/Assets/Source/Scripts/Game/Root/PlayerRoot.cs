@@ -56,7 +56,8 @@ public class PlayerRoot : CompositeRoot
     {
         Debug.Log("Получили Урон!!");
         _currentLifeCount--;
-        _playerUI.UpdateLifeCount(_currentLifeCount);
+        if(_playerUI != null)
+            _playerUI.UpdateLifeCount(_currentLifeCount);
         CheckPlayerLifeCount();
     }
 
