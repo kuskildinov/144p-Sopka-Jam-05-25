@@ -9,6 +9,9 @@ public class PlayerUI : MonoBehaviour
 
     public void UpdateLifeCount(int newLifeCount)
     {
+        if (newLifeCount <= 0)
+            return;
+
         for (int i = 0; i < _lifecounters.Length - newLifeCount; i++)
         {
             if(_lifecounters[i] != null)
