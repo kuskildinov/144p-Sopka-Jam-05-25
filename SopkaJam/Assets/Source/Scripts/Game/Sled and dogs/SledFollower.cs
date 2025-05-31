@@ -47,4 +47,13 @@ public class SledFollower : MonoBehaviour
         rb.MovePosition(newPosition);
 
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            Debug.Log("-1hp");
+            Destroy(collision.gameObject); // ”ничтожаем камень
+        }
+    }
 }

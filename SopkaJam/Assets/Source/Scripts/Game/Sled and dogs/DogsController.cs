@@ -15,6 +15,7 @@ public class DogsController : MonoBehaviour
     private bool isDashing;
     private float lastDashTime;
     private float originalGravity;
+    private bool isTouchingBoundary;
 
     void Start()
     {
@@ -30,6 +31,8 @@ public class DogsController : MonoBehaviour
         {
             float verticalInput = Input.GetAxis("Vertical");
             rb.velocity = new Vector2(0, verticalInput * moveSpeed);
+
+            
         }
 
         // –ывок по нажатию Shift
@@ -60,6 +63,15 @@ public class DogsController : MonoBehaviour
         rb.velocity = Vector2.zero;
         GetComponent<SpriteRenderer>().color = Color.white;
         isDashing = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            Debug.Log("-1hp");
+            Destroy(collision.gameObject); // ”ничтожаем камень
+        }
     }
 
 }
