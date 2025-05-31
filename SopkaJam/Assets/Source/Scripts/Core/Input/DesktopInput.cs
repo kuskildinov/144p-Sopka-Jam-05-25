@@ -19,11 +19,16 @@ public class DesktopInput : IInput
 
     public bool Dash()
     {
-        return Input.GetMouseButtonDown(1);
+        return Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Space);
     }
 
     public bool AnyKeyDown()
     {
-        return Input.anyKey;
+        return Input.anyKey && !Input.GetKeyDown(KeyCode.Escape);
+    }
+
+    public bool Pause()
+    {
+        return Input.GetKeyDown(KeyCode.Escape);
     }
 }

@@ -31,6 +31,16 @@ public class Level : MonoBehaviour
 
     public virtual bool CheckCanLeaveLevel()
     {
-        return false;
+        return true;
+    }
+
+    public virtual void Pause()
+    {
+
+    }
+
+    public virtual void Resume()
+    {
+
     }
 }

@@ -5,18 +5,36 @@ using UnityEngine;
 public class TigerBushesLevel : Level
 {
     [SerializeField] private List<Bush> _bushes;
-    [SerializeField] private float _timeBetweenTigerShow = 5f;
-    
+      
+    private Bush _currentBush;
+    private Bush _neighbourBush;
     private int _currentBushIndex;
-    private bool _currentTigerIsLeft;
+    private bool _lastWasCurrentBush;
+    private bool _isPause;
+    private bool _canSpawn;
 
-
+   
     public override void Initialize(LevelRoot levelRoot, IInput input)
     {
         base.Initialize(levelRoot, input);
-        _canLeaveLevel = true;
+        InitializeBushes();
         _currentBushIndex = 0;
-        ChangeBushToSpawnTiger();
+        OnCurrentBushChanged();
+        ShowCurrentBashTiger();
+    }
+
+    private void Update()
+    {
+        if (_isPause)
+        {
+            _canSpawn = false;
+            return;
+        }
+        else
+        {
+            _canSpawn = true;
+        }
+           
     }
 
     public override void ActivateTrigger(int index)
@@ -34,15 +52,75 @@ public class TigerBushesLevel : Level
 
     public void OnBushTriggerEnter(int newBushIndex)
     {
-        StopCoroutine(ShowTigerRoutine());
+        if (newBushIndex < 0 || newBushIndex > _bushes.Count - 1)
+        {
+            Debug.LogError("ошибка в индексе куста");
+            return;
+        }
+               
         _currentBushIndex = newBushIndex;
-        if(_currentBushIndex != newBushIndex)
-            ChangeBushToSpawnTiger();
+        OnCurrentBushChanged();
     }
+
+    private void InitializeBushes()
+    {
+        foreach (Bush bush in _bushes)
+        {
+            bush.SetLevel(this);
+        }
+    }
+
+    private void OnCurrentBushChanged()
+    {
+        _currentBush = _bushes[_currentBushIndex];
+        _neighbourBush = _bushes[_currentBushIndex + 1];
+    }
+
+    public override void Pause()
+    {
+        _isPause = true;
+    }
+
+    public override void Resume()
+    {
+        _isPause = false;       
+    }
+
+    #region >>> SHOW HIDE TIGER
+    public void OnTigerHide(Bush bush)
+    {
+        if (_canSpawn == false)
+            return;
+
+        if (_lastWasCurrentBush)
+        {
+            ShowNeighbourBashTiger();
+        }
+        else
+        {
+            ShowCurrentBashTiger();
+        }
+    }
+
+    private void ShowCurrentBashTiger()
+    {
+        _currentBush.ShowTiger(false);
+        _lastWasCurrentBush = true;
+    }
+
+    private void ShowNeighbourBashTiger()
+    {
+        _neighbourBush.ShowTiger(true);
+        _lastWasCurrentBush = false;
+    }
+
+    #endregion
+
+    #region >>> ATTACK
 
     public void TryAttack()
     {
-        if(_currentTigerIsLeft)
+        if (!_lastWasCurrentBush)
         {
             NeighbourTigerAttack();
         }
@@ -52,73 +130,34 @@ public class TigerBushesLevel : Level
         }
     }
 
-    private void ShowCurrntTiger()
-    {
-        ShowTigerByIndex(_currentBushIndex,false);
-        _currentTigerIsLeft = false;
-    }
-
-    private void ShowNeighbourTiger()
-    {
-        ShowTigerByIndex(_currentBushIndex + 1, true);
-        _currentTigerIsLeft = true;
-    }
-
-    private void ShowTigerByIndex(int index, bool isLeft)
-    {
-        foreach (Bush bush in _bushes)
-        {
-            if (bush.Index == index)
-            {
-                bush.ShowTiger(isLeft);
-            }
-        }
-    }
-
     private void CurrentTigerAttack()
     {
-        foreach (Bush bush in _bushes)
-        {
-            if (bush.Index == _currentBushIndex)
-            {
-                bush.Attack(false);
-            }
-        }
+        _currentBush.Attack(false);
     }
 
     private void NeighbourTigerAttack()
     {
-        foreach (Bush bush in _bushes)
-        {
-            if (bush.Index == (_currentBushIndex + 1))
-            {
-                bush.Attack(true);
-            }
-        }
+        _neighbourBush.Attack(true);
     }
 
-    private void HideAllTigers()
-    {
-        foreach (Bush bush in _bushes)
-        {
-            bush.HideTigers();
-        }
-    }
+    #endregion
 
-    private void ChangeBushToSpawnTiger()
-    {
-        HideAllTigers();
-        StartCoroutine(ShowTigerRoutine());
-    }    
 
-    private IEnumerator ShowTigerRoutine()
-    {
-        while(true)
-        {
-            ShowCurrntTiger();
-            yield return new WaitForSecondsRealtime(_timeBetweenTigerShow);
-            ShowNeighbourTiger();
-            yield return new WaitForSecondsRealtime(_timeBetweenTigerShow);
-        }      
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

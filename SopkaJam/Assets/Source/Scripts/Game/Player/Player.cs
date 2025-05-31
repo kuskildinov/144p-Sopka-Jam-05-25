@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -62,12 +63,17 @@ public class Player : MonoBehaviour
 
     public void OnPlayerExitTrigger() => _root.OnPlayerExitTrigger();
 
+    public void OnItemTaked()
+    {
+        StartCoroutine(TakeItemRoutine());
+    }
+
     #endregion
 
     #region >>> VISUAL
 
     public void ChangeState(PlayerState newState)
-    {
+    {       
         _currentState = newState;
         PlayerStateChanged?.Invoke();
     }
@@ -79,6 +85,17 @@ public class Player : MonoBehaviour
 
     #endregion
 
+    private IEnumerator TakeItemRoutine()
+    {
+        ChangeState(PlayerState.PICK_UP);
+        TogglePlayerMovment(false);
+        TogglePlayerDash(false);
+        yield return new WaitForSecondsRealtime(1f);
+        TogglePlayerMovment(true);
+        TogglePlayerDash(true);
+        ChangeState(PlayerState.IDLE);
+    }
+
 
 }
 
@@ -89,5 +106,8 @@ public enum PlayerState
     RUN,
     DASH,
     ATTACK,
+    DEAD,
+    CRY,
+    PICK_UP,
 }
 

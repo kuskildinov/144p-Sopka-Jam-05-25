@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -8,6 +9,7 @@ public class TigerVisual : MonoBehaviour
     private const string LEFT_ATTACK = "LeftAttack";
     private const string RIGHT_ATTACK = "RightAttack";
     private const string MAIN_ATTACK = "MainAttack";
+    private const string STAN = "Stan";
 
     private Animator _animator;
     private MainTiger _tiger;
@@ -55,14 +57,19 @@ public class TigerVisual : MonoBehaviour
                     _animator.SetBool(WALK, false);
                     _animator.SetTrigger(MAIN_ATTACK);
                     break;
-                }  
+                }
+            case MainTigerState.STAN:
+                {
+                    _animator.SetBool(WALK, false);
+                    _animator.SetBool(STAN, true);                   
+                    break;
+                }
         }
     }
 
     public void BackToWalkState()
     {
-        _animator.SetBool(WALK, true);
-        ResetAnimatorTriggers();       
+        StartCoroutine(BackToWalkStateRoutine());      
     }
 
     private void ResetAnimatorTriggers()
@@ -71,5 +78,13 @@ public class TigerVisual : MonoBehaviour
         _animator.ResetTrigger(LEFT_ATTACK);
         _animator.ResetTrigger(RIGHT_ATTACK);
         _animator.ResetTrigger(MAIN_ATTACK);
+    }
+
+    private IEnumerator BackToWalkStateRoutine()
+    {
+        _animator.SetBool(STAN, false);
+        _animator.SetBool(WALK, true);
+        yield return new WaitForSecondsRealtime(1f);
+        ResetAnimatorTriggers();
     }
 }

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class ParallaxBackground : MonoBehaviour
 {
@@ -10,8 +9,7 @@ public class ParallaxBackground : MonoBehaviour
 
     public TimerToEnd timerToEnd;
     private bool timerEnd;
-    private bool houseMove;
-    private float timeToStop = 3f;
+    private bool houseMove;   
 
     private float spriteWidth = 48f;
 

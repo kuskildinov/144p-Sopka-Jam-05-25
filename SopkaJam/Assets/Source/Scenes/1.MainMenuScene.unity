@@ -752,6 +752,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 436658349}
   m_CullTransparentMesh: 1
+--- !u!1 &441765038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 441765039}
+  - component: {fileID: 441765040}
+  m_Layer: 0
+  m_Name: SoundsRoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &441765039
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441765038}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1788531399}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &441765040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441765038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0519180ec17479d449ed5a1af14b1682, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &534119647
 GameObject:
   m_ObjectHideFlags: 0
@@ -3210,7 +3254,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5acbf2631d93b04d8e69baa0bdcea99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _panel: {fileID: 0}
   _animator: {fileID: 1643398791}
+  _screesaverShowTime: 0
 --- !u!1 &1788531398
 GameObject:
   m_ObjectHideFlags: 0
@@ -3242,6 +3288,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 365623987}
+  - {fileID: 441765039}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1788531400
@@ -3258,6 +3305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _order:
   - {fileID: 365623988}
+  - {fileID: 441765040}
 --- !u!1 &1790445324
 GameObject:
   m_ObjectHideFlags: 0
@@ -3574,8 +3622,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdad1a4fb38b1fc4ea7c1e8cb02d6e6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _screenSaver: {fileID: 1643398792}
-  _screesaverShowTime: 3
   _mainMenuPanel: {fileID: 820041713}
   _selectChapterPanel: {fileID: 942682695}
   _confirmExitPanel: {fileID: 1143638405}

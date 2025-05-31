@@ -21,6 +21,8 @@ public class PlayerMovment : MonoBehaviour
 
     private bool _canMove = true;
     private bool _canDash = true;
+
+    public bool CanMove => _canMove;
     
     public void Initialize(Player player, PlayerSettingsSO settings, IInput input, Rigidbody2D rigidbody, MovmentType movmentType)
     {
