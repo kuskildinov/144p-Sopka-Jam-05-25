@@ -56,14 +56,13 @@ public class DogsController : MonoBehaviour
         // Фиксируем направление рывка
         rb.velocity = new Vector2(0, direction * dashSpeed);
 
-        // Визуальный эффект (можно добавить частицы)
-        GetComponent<SpriteRenderer>().color = Color.blue;
+        
 
         yield return new WaitForSeconds(dashDuration);
 
         // Возвращаем обычное состояние
         rb.velocity = Vector2.zero;
-        GetComponent<SpriteRenderer>().color = Color.white;
+        
         isDashing = false;
     }
 
