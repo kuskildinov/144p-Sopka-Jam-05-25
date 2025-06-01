@@ -1314,7 +1314,7 @@ PrefabInstance:
       objectReference: {fileID: 13207312}
     - target: {fileID: 2278629170165443978, guid: 7188240187822dd429864ba834fb8f5c, type: 3}
       propertyPath: _nextScenename
-      value: 13.FinalBossFight
+      value: 12.CutScene_4
       objectReference: {fileID: 0}
     - target: {fileID: 2278629170165443978, guid: 7188240187822dd429864ba834fb8f5c, type: 3}
       propertyPath: layers.Array.size

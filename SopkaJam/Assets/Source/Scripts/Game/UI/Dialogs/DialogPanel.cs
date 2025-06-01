@@ -20,12 +20,10 @@ public class DialogPanel : MonoBehaviour
     }
 
     public void Open()
-    {
+    {       
         _panel.gameObject.SetActive(true);
         _currentPageIndex = 0;
-        OpenPageByIndex(0);
-      
-           
+        OpenPageByIndex(0);    
     }
 
     public void Close()
