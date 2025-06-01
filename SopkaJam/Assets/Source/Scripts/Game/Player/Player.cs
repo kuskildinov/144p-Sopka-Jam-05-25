@@ -68,6 +68,11 @@ public class Player : MonoBehaviour
         StartCoroutine(TakeItemRoutine());
     }
 
+    public void OnAttack()
+    {
+        StartCoroutine(AttackRoutine());
+    }
+
     public void OnTakeDamage()
     {
         StartCoroutine(TakeDamageRoutine());
@@ -90,6 +95,18 @@ public class Player : MonoBehaviour
 
     #endregion
 
+    private IEnumerator AttackRoutine()
+    {
+        ChangeState(PlayerState.ATTACK);
+        TogglePlayerMovment(false);
+        TogglePlayerDash(false);
+        yield return new WaitForSecondsRealtime(1f);
+        TogglePlayerMovment(true);
+        if (_root.CanDash)
+            TogglePlayerDash(true);
+        ChangeState(PlayerState.IDLE);
+    }
+
     private IEnumerator TakeItemRoutine()
     {
         ChangeState(PlayerState.PICK_UP);
@@ -97,7 +114,8 @@ public class Player : MonoBehaviour
         TogglePlayerDash(false);
         yield return new WaitForSecondsRealtime(1f);
         TogglePlayerMovment(true);
-        TogglePlayerDash(true);
+        if(_root.CanDash)
+            TogglePlayerDash(true);
         ChangeState(PlayerState.IDLE);
     }
 
@@ -108,7 +126,8 @@ public class Player : MonoBehaviour
         TogglePlayerDash(false);
         yield return new WaitForSecondsRealtime(1f);
         TogglePlayerMovment(true);
-        TogglePlayerDash(true);
+        if (_root.CanDash)
+            TogglePlayerDash(true);
         ChangeState(PlayerState.IDLE);
     }
 

@@ -75,6 +75,11 @@ public class LevelRoot : CompositeRoot
         _playerRoot.OnPlayerTakeItem();
     }
 
+    public void OnPlayerAttack()
+    {
+        _playerRoot.OnPlayerAttack();
+    }
+
     public void OnDialogEnded(int index)
     {
         _level.OnDialogEnded(index);

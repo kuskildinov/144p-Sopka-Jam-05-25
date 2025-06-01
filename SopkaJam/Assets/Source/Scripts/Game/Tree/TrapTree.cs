@@ -5,6 +5,7 @@ using UnityEngine;
 public class TrapTree : MonoBehaviour
 {
     private const string TIGER_TRAPPED = "TigerTrapped";
+    private const string TAKE_DAMAGE = "TakeDamage";
 
     [SerializeField] private TigerRoot _tigerRoot;
     [SerializeField] private float _trapTime;
@@ -30,6 +31,11 @@ public class TrapTree : MonoBehaviour
     {
         ShowTrappedTiger();
         StartCoroutine(TigerTrapRoutine());
+    }
+
+    private void OnTakeDamage()
+    {
+        _animtor.SetTrigger(TAKE_DAMAGE);
     }
 
     private void ShowTrappedTiger()
@@ -80,11 +86,13 @@ public class TrapTree : MonoBehaviour
                 case MainTigerState.LEFT_ATTACK:
                     {
                         Debug.Log("Атака лапой");
+                        OnTakeDamage();
                         break;
                     }
                 case MainTigerState.RIGHT_ATTACK:
                     {
                         Debug.Log("Атака лапой");
+                        OnTakeDamage();
                         break;
                     }
             }

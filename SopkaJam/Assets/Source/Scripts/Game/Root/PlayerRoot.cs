@@ -20,6 +20,7 @@ public class PlayerRoot : CompositeRoot
     private IInput _input;
     private int _currentLifeCount;
     private bool _playerAlive;
+    public bool CanDash => _dashOnAwake;
     public override void Compose()
     {
         _input = new DesktopInput();
@@ -60,6 +61,11 @@ public class PlayerRoot : CompositeRoot
     public void OnPlayerExitTrigger()
     {
         _hintsRoot.CloseAllHints();
+    }
+
+    public void OnPlayerAttack()
+    {
+        _player.OnAttack();
     }
 
     public void OnPlayerTakeItem()

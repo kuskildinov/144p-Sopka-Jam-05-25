@@ -10,6 +10,7 @@ public class PlayerVisual : MonoBehaviour
     private const string DASH = "Dash";
     private const string CRY = "Cry";
     private const string PICK_UP = "PickUp";
+    private const string ATTACK = "Attack";
     private const string TAKE_DAMAGE = "TakeDamage";
     private const string DEAD = "Dead";
 
@@ -120,6 +121,11 @@ public class PlayerVisual : MonoBehaviour
             case PlayerState.PICK_UP:
                 {
                     _animator.SetTrigger(PICK_UP);
+                    break;
+                }
+            case PlayerState.ATTACK:
+                {
+                    _animator.SetTrigger(ATTACK);
                     break;
                 }
             case PlayerState.TAKE_DAMAGE:

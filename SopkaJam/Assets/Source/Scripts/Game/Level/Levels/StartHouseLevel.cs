@@ -5,6 +5,7 @@ using UnityEngine;
 public class StartHouseLevel : Level
 {   
     [SerializeField] private int _itemToTakeCount;
+    [SerializeField] private GameObject _playerUI;
     [SerializeField] private GameObject _spear;
    
     private int _takedItemCounter;
@@ -20,6 +21,10 @@ public class StartHouseLevel : Level
         if(index == 2)
         {
             ShowSpearOnPlayer();
+        }
+        else if(index == 1)
+        {
+            _playerUI.gameObject.SetActive(true);
         }
         _takedItemCounter++;
         CheckAllItemsCollected();

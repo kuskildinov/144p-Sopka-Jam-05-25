@@ -35,18 +35,21 @@ public class TigerFightLevel : Level
     {
         if(index == FirstTrapTreeIndex)
         {
+            _root.OnPlayerAttack();
             _trapTree_1.BrakeTree();
             _brokenTreeCount++;
             CheeckBrokenTrees();
         }
         else if(index == SecondTrapTreeIndex)
         {
+            _root.OnPlayerAttack();
             _trapTree_2.BrakeTree();
             _brokenTreeCount++;
             CheeckBrokenTrees();
         }
         else if (index == ThirdTrapTreeIndex)
         {
+            _root.OnPlayerAttack();
             _trapTree_3.BrakeTree();
             _brokenTreeCount++;
             CheeckBrokenTrees();
