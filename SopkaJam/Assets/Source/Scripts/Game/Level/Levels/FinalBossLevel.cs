@@ -19,15 +19,24 @@ public class FinalBossLevel : Level
     [SerializeField] private GameObject _middleAttention;
     [SerializeField] private GameObject _bottomAttention;
 
+    private bool _playerIsAlive;
     public override void Initialize(LevelRoot levelRoot, IInput input)
     {
         base.Initialize(levelRoot, input);
+        _playerIsAlive = true;
        StartCoroutine(LevelRoutine());
     }
 
     public override void OnPlayerDead()
     {
+        _playerIsAlive = false;
         _paralax.StopMovment();
+    }
+
+    private void CheckCanChangeScene()
+    {
+        if(_playerIsAlive)
+            _root.LoadSceneByName(_nextSceneName);
     }
 
     private IEnumerator LevelRoutine()
@@ -206,6 +215,6 @@ public class FinalBossLevel : Level
         #endregion
 
         yield return new WaitForSecondsRealtime(3f);
-        _root.LoadSceneByName(_nextSceneName);
+        CheckCanChangeScene();
     }   
 }
