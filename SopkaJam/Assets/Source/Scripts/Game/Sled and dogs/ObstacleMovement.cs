@@ -1,15 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ObstacleMovement : MonoBehaviour
 {
     private float moveSpeed; // Скорость движения влево
-    public float speedUp = 0.0001f;
+    public float speedUp = 0.0005f;
 
+    void Start()
+    {
+        
+    }
     public void Initialize(float speed)
     {
         moveSpeed = speed;
+
+        if (gameObject.name == "Beam_sc8(Clone)" && transform.position.y > -2.1f)
+        {
+            Vector3 currentScale = transform.localScale;
+            currentScale.y = -1.15f;
+            transform.localScale = currentScale;
+        }
     }
     void Update()
     {
