@@ -4573,10 +4573,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelRoot: {fileID: 1481661153}
   _nextScenename: 15.FinalBossFight
+  _needIncrease: 0
   layerSpeeds:
-  - 8
-  - 8
-  - 8
+  - 15
+  - 15
+  - 15
   - 0
   layers:
   - {fileID: 448875257925796830}

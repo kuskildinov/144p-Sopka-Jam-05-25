@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,7 +22,10 @@ public class DialogPanel : MonoBehaviour
     public void Open()
     {
         _panel.gameObject.SetActive(true);
-        OpenPageByIndex(0);      
+        _currentPageIndex = 0;
+        OpenPageByIndex(0);
+      
+           
     }
 
     public void Close()
@@ -31,16 +35,9 @@ public class DialogPanel : MonoBehaviour
     }
 
     private void OpenPageByIndex(int index)
-    {       
-        _currentPageIndex = 0;
-        for (int i = 0; i < _pages.Count; i++)
-        {
-            if(i == index)
-            {
-                _pages[i].gameObject.SetActive(true);
-                _currentPageIndex = index;
-            }           
-        }
+    {
+        StartCoroutine(DialogRoutine(index));
+       
     }
 
     private void CLosePageByIndex(int index)
@@ -75,5 +72,20 @@ public class DialogPanel : MonoBehaviour
         {
             CLosePageByIndex(i);
         }
+    }
+
+    private IEnumerator DialogRoutine(int index)
+    {
+        for (int i = 0; i < _pages.Count; i++)
+        {
+            if (i == index)
+            {
+                _pages[i].gameObject.SetActive(true);
+                _currentPageIndex = index;
+            }
+        }
+        yield return new WaitForSecondsRealtime(3f);
+        OpenNextPage();
+        yield break;
     }
 }

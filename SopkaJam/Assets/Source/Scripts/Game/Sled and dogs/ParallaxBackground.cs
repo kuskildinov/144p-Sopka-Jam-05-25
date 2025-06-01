@@ -6,6 +6,7 @@ public class ParallaxBackground : MonoBehaviour
 {
     [SerializeField] private LevelRoot _levelRoot;
     [SerializeField] private string _nextScenename;
+    [SerializeField] private bool _needIncrease = true;
     public float[] layerSpeeds;
     public Transform[] layers;
 
@@ -25,7 +26,7 @@ public class ParallaxBackground : MonoBehaviour
         }      
         
 
-        if (timerEnd == false)
+        if (timerEnd == false && _needIncrease)
         {
             IncreaseSpeedByTime();
         }
@@ -60,6 +61,7 @@ public class ParallaxBackground : MonoBehaviour
 
     private void Movment(Transform layer, float speed)
     {
+
         layer.position += Vector3.left * speed * Time.deltaTime;
     }
 

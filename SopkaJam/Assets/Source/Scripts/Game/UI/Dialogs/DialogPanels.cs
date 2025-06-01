@@ -20,18 +20,6 @@ public class DialogPanels : MonoBehaviour
         InitializePanels();
     }
 
-    private void Update()
-    {       
-        if (_isDialogOpen == false)
-            return;
-
-        if(_input.Interaction())
-        {
-            TryOpenNextPage();
-        }
-
-    }
-
     public void TryOpenDialogPanelByIndex(int index)
     {       
         foreach (DialogPanel panel in _panels)
@@ -77,12 +65,7 @@ public class DialogPanels : MonoBehaviour
         _root.OnDialogEnded(_currentOpenDialogPanel.Index);
         _currentOpenDialogPanel = null;
      }
-
-    private void TryOpenNextPage()
-    {
-        _currentOpenDialogPanel.OpenNextPage();
-    }
-
+   
     private void InitializePanels()
     {
         foreach (DialogPanel panel in _panels)
