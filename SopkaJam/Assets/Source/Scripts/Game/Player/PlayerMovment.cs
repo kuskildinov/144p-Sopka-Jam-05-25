@@ -139,8 +139,11 @@ public class PlayerMovment : MonoBehaviour
             _horizontalInput = _input.HorizontalInput();
             if (_movmentType == MovmentType.COMMON)
                 _verticalInput = _input.VerticalInput();
-            else
+            else if (_movmentType == MovmentType.HORIZONTAL)
+            {
                 _verticalInput = 0f;
+            }
+              
         }
        
     }

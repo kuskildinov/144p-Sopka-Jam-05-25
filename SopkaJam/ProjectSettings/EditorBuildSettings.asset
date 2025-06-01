@@ -42,6 +42,12 @@ EditorBuildSettings:
     path: Assets/Source/Scenes/11.DogsRunner.unity
     guid: 859c1349041787a4c86004bf9993933e
   - enabled: 1
-    path: Assets/Source/Scenes/15.FinalBossFight.unity
+    path: Assets/Source/Scenes/12.CutScene_4.unity
+    guid: 90fc1057f7da56e4d8c7bd1fc0224a80
+  - enabled: 1
+    path: Assets/Source/Scenes/13.FinalBossFight.unity
     guid: 9cc6fc54d53609a4fad6a5637a324b74
+  - enabled: 1
+    path: Assets/Source/Scenes/14.CutScene_5.unity
+    guid: 8473524905e74d94f987305a17488831
   m_configObjects: {}

@@ -24,7 +24,7 @@ public class TrapTree : MonoBehaviour
         _tigerTrigger.enabled = false;
         _mainVisual.gameObject.SetActive(false);
         _brokenVisual.gameObject.SetActive(true);
-        _attackTrigger.gameObject.SetActive(false);
+        _attackTrigger.enabled = false;
     }
 
     private void StartTigerTrap()
@@ -43,7 +43,7 @@ public class TrapTree : MonoBehaviour
         _isTigerTrapped = true;
         _tigerRoot.HideTiger();
         _animtor.SetBool(TIGER_TRAPPED, true);
-        _attackTrigger.gameObject.SetActive(true);
+        _attackTrigger.enabled = true;
     }
 
     public void HideTrappedTiger()

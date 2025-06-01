@@ -5,6 +5,7 @@ public class UIHintsPanel : MonoBehaviour
     [SerializeField] private GameObject _interactionHintPanel;
     [SerializeField] private GameObject _dashHintPanel;
     [SerializeField] private GameObject _levelHintPanel;
+    [SerializeField] private GameObject _attackHintPanel;
 
     public void ShowHintPanelByTrigger(Trigger trigger)
     {
@@ -27,6 +28,11 @@ public class UIHintsPanel : MonoBehaviour
                         _interactionHintPanel.gameObject.SetActive(true);
                     else if (trigger.Index == 1)
                         _levelHintPanel.gameObject.SetActive(true);
+                    break;
+                }
+            case TriggetType.ATTACK:
+                {
+                    _attackHintPanel.gameObject.SetActive(true);
                     break;
                 }
         }
@@ -63,6 +69,8 @@ public class UIHintsPanel : MonoBehaviour
             _dashHintPanel.gameObject.SetActive(false);
         if(_levelHintPanel != null)
             _levelHintPanel.gameObject.SetActive(false);
+        if (_attackHintPanel != null)
+            _attackHintPanel.gameObject.SetActive(false);
     }
 }
 

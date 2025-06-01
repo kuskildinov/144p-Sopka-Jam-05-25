@@ -7,8 +7,8 @@ public class MainMenuPanel : MonoBehaviour
 {
     private const int FIRST_SCENE_INDEX = 2;
     private const int CHAPTER_ONE_INDEX = 3;
-    private const int CHAPTER_TWO_INDEX = 4;
-    private const int CHAPTER_TREE_INDEX = 9;
+    private const int CHAPTER_TWO_INDEX = 8;
+    private const int CHAPTER_TREE_INDEX = 12;
         
     
     [Header("Panels")]

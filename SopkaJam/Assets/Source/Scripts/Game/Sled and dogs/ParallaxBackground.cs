@@ -18,8 +18,11 @@ public class ParallaxBackground : MonoBehaviour
 
     void Update()
     {
-        timerEnd = timerToEnd._timeIsOver;
-        houseMove = timerToEnd._stopHouse;
+        if(timerToEnd != null)
+        {
+            timerEnd = timerToEnd._timeIsOver;
+            houseMove = timerToEnd._stopHouse;
+        }      
         
 
         if (timerEnd == false)
