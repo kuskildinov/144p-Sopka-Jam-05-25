@@ -19,6 +19,7 @@ public class PlayerRoot : CompositeRoot
 
     private IInput _input;
     private int _currentLifeCount;
+    private bool _playerAlive;
     public override void Compose()
     {
         _input = new DesktopInput();
@@ -35,6 +36,7 @@ public class PlayerRoot : CompositeRoot
             TogglePlayerDash(false);
 
         _currentLifeCount = _playerLifeCount;
+        _playerAlive = true;
     }
 
     public void TogglePlayerMovment(bool value) => _player.TogglePlayerMovment(value);
@@ -68,6 +70,7 @@ public class PlayerRoot : CompositeRoot
     public void OnPlayerTakeDamage()
     {
         Debug.Log("Получили Урон!!");
+        _player.OnTakeDamage();
         _currentLifeCount--;
         if(_playerUI != null)
             _playerUI.UpdateLifeCount(_currentLifeCount);
@@ -95,10 +98,12 @@ public class PlayerRoot : CompositeRoot
 
     private void CheckPlayerLifeCount()
     {
-        if(_currentLifeCount <= 0)
+        if(_currentLifeCount <= 0 && _playerAlive)
         {
+            _playerAlive = false;
             _player.ChangeState(PlayerState.DEAD);
             _levelRoot.OpenGameOverPanel();
+            _player.TogglePlayerMovment(false);
         }
     }
 

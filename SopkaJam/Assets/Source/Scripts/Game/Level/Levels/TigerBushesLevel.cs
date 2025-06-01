@@ -72,6 +72,9 @@ public class TigerBushesLevel : Level
 
     private void OnCurrentBushChanged()
     {
+        if ((_currentBushIndex + 1) > _bushes.Count - 1)
+            return;
+
         _currentBush = _bushes[_currentBushIndex];
         _neighbourBush = _bushes[_currentBushIndex + 1];
     }

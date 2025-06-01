@@ -68,6 +68,11 @@ public class Player : MonoBehaviour
         StartCoroutine(TakeItemRoutine());
     }
 
+    public void OnTakeDamage()
+    {
+        StartCoroutine(TakeDamageRoutine());
+    }
+
     #endregion
 
     #region >>> VISUAL
@@ -96,6 +101,17 @@ public class Player : MonoBehaviour
         ChangeState(PlayerState.IDLE);
     }
 
+    private IEnumerator TakeDamageRoutine()
+    {
+        ChangeState(PlayerState.TAKE_DAMAGE);
+        TogglePlayerMovment(false);
+        TogglePlayerDash(false);
+        yield return new WaitForSecondsRealtime(1f);
+        TogglePlayerMovment(true);
+        TogglePlayerDash(true);
+        ChangeState(PlayerState.IDLE);
+    }
+
 
 }
 
@@ -109,5 +125,6 @@ public enum PlayerState
     DEAD,
     CRY,
     PICK_UP,
+    TAKE_DAMAGE,
 }
 
