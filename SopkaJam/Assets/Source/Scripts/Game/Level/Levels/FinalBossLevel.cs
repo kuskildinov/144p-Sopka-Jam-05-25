@@ -13,6 +13,7 @@ public class FinalBossLevel : Level
     [SerializeField] private const float _pauseTime = 1f;
     [SerializeField] private CameraShake _camera;
     [SerializeField] private ParallaxBackground _paralax;
+    [SerializeField] private string _nextSceneName;
     [Header("Attentions")]
     [SerializeField] private GameObject _topAttantion;
     [SerializeField] private GameObject _middleAttention;
