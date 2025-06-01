@@ -1325,61 +1325,17 @@ PrefabInstance:
       value: ObstacleSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 6312767955243929434, guid: ceceef9052d90774bb674e8944fef5da, type: 3}
-      propertyPath: beam
-      value: 
-      objectReference: {fileID: 8084211445198808285, guid: a30c88039e95451498bc8a820207e476, type: 3}
-    - target: {fileID: 6312767955243929434, guid: ceceef9052d90774bb674e8944fef5da, type: 3}
-      propertyPath: maxY
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6312767955243929434, guid: ceceef9052d90774bb674e8944fef5da, type: 3}
-      propertyPath: minY
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6312767955243929434, guid: ceceef9052d90774bb674e8944fef5da, type: 3}
-      propertyPath: stone
-      value: 
-      objectReference: {fileID: 8515107897295207448, guid: 062bfd8ed9ee7ca40800ebf32e32b65a, type: 3}
-    - target: {fileID: 6312767955243929434, guid: ceceef9052d90774bb674e8944fef5da, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 287788852}
     - target: {fileID: 6312767955243929434, guid: ceceef9052d90774bb674e8944fef5da, type: 3}
       propertyPath: speedUp
-      value: 0.0005
-      objectReference: {fileID: 0}
-    - target: {fileID: 6312767955243929434, guid: ceceef9052d90774bb674e8944fef5da, type: 3}
-      propertyPath: startSpeed
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6312767955243929434, guid: ceceef9052d90774bb674e8944fef5da, type: 3}
       propertyPath: timerToEnd
       value: 
       objectReference: {fileID: 13207312}
-    - target: {fileID: 6312767955243929434, guid: ceceef9052d90774bb674e8944fef5da, type: 3}
-      propertyPath: spawnDistance
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 6312767955243929434, guid: ceceef9052d90774bb674e8944fef5da, type: 3}
-      propertyPath: spawnInterval
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6312767955243929434, guid: ceceef9052d90774bb674e8944fef5da, type: 3}
-      propertyPath: obstaclePrefab
-      value: 
-      objectReference: {fileID: 8084211445198808285, guid: a30c88039e95451498bc8a820207e476, type: 3}
-    - target: {fileID: 6312767955243929434, guid: ceceef9052d90774bb674e8944fef5da, type: 3}
-      propertyPath: obstaclePrefab.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6312767955243929434, guid: ceceef9052d90774bb674e8944fef5da, type: 3}
-      propertyPath: obstaclePrefab.Array.data[0]
-      value: 
-      objectReference: {fileID: 8515107897295207448, guid: 062bfd8ed9ee7ca40800ebf32e32b65a, type: 3}
-    - target: {fileID: 6312767955243929434, guid: ceceef9052d90774bb674e8944fef5da, type: 3}
-      propertyPath: obstaclePrefab.Array.data[1]
-      value: 
-      objectReference: {fileID: 8084211445198808285, guid: a30c88039e95451498bc8a820207e476, type: 3}
     - target: {fileID: 9110932378573061720, guid: ceceef9052d90774bb674e8944fef5da, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.3682196
@@ -1446,6 +1402,10 @@ PrefabInstance:
       propertyPath: timerToEnd
       value: 
       objectReference: {fileID: 13207312}
+    - target: {fileID: 2278629170165443978, guid: 7188240187822dd429864ba834fb8f5c, type: 3}
+      propertyPath: _needIncrease
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2278629170165443978, guid: 7188240187822dd429864ba834fb8f5c, type: 3}
       propertyPath: _nextScenename
       value: 12.CutScene_4

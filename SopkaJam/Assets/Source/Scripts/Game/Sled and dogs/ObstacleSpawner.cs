@@ -9,7 +9,7 @@ public class ObstacleSpawner : MonoBehaviour
     public float minY = -2f, maxY = 2f; // Разброс по высоте
     public Transform player; // Ссылка на игрока
     public float startSpeed;
-    public float speedUp = 0.0005f;
+    public float speedUp = 0f;
 
     public TimerToEnd timerToEnd;
     private bool timerEnd;

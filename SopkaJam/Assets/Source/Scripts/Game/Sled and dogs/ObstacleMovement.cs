@@ -6,7 +6,7 @@ using UnityEngine;
 public class ObstacleMovement : MonoBehaviour
 {
     private float moveSpeed; // Скорость движения влево
-    public float speedUp = 0.0005f;
+    public float speedUp =0f;
 
     void Start()
     {
