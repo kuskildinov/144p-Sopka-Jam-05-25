@@ -12,6 +12,7 @@ public class FinalBossLevel : Level
     [SerializeField] private BossObstacleSpawner _obstacleSpawner;    
     [SerializeField] private const float _pauseTime = 1f;
     [SerializeField] private CameraShake _camera;
+    [SerializeField] private ParallaxBackground _paralax;
     [Header("Attentions")]
     [SerializeField] private GameObject _topAttantion;
     [SerializeField] private GameObject _middleAttention;
@@ -23,7 +24,10 @@ public class FinalBossLevel : Level
        StartCoroutine(LevelRoutine());
     }
 
-    
+    public override void OnPlayerDead()
+    {
+        _paralax.StopMovment();
+    }
 
     private IEnumerator LevelRoutine()
     {

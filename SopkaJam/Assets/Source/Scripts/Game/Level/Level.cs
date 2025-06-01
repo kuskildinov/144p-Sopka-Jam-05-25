@@ -43,4 +43,9 @@ public class Level : MonoBehaviour
     {
 
     }
+
+    public virtual void OnPlayerDead()
+    {
+
+    }
 }

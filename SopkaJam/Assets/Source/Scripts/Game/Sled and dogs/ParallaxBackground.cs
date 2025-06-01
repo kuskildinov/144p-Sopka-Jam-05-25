@@ -50,6 +50,14 @@ public class ParallaxBackground : MonoBehaviour
         }
     }
 
+    public void StopMovment()
+    {
+        for (int i = 0; i < layerSpeeds.Length; i++)
+        {
+            layerSpeeds[i] = 0f;
+        }
+    }
+
     private void Movment(Transform layer, float speed)
     {
         layer.position += Vector3.left * speed * Time.deltaTime;

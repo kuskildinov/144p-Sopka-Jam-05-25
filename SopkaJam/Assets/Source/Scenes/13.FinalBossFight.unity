@@ -694,6 +694,7 @@ MonoBehaviour:
   _boss: {fileID: 975360176}
   _obstacleSpawner: {fileID: 864950103}
   _camera: {fileID: 1747729459}
+  _paralax: {fileID: 2278629170060593935}
   _topAttantion: {fileID: 1530499823}
   _middleAttention: {fileID: 1912236792}
   _bottomAttention: {fileID: 1214821344}

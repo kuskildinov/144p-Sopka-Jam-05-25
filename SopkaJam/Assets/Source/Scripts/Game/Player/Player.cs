@@ -55,6 +55,14 @@ public class Player : MonoBehaviour
             _playerMovment.DeactivateDash();
     }
 
+    public void ToggleRotation(bool value)
+    {
+        if (value)
+            _playerVisual.ActivateRotation();
+        else
+            _playerVisual.DeactivateRotation();
+    }
+
     #endregion
 
     #region >>> INTERACTIONS

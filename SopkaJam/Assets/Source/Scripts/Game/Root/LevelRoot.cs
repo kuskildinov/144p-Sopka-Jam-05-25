@@ -119,6 +119,11 @@ public class LevelRoot : CompositeRoot
         _playerRoot.TogglePlayerCry(value);
     }
 
+    public void OnPlayerDead()
+    {
+        _level.OnPlayerDead();
+    }
+
     public void ShowHintsByType(HintsType type)
     {
         _hintsRoot.ShowHintByType(type);

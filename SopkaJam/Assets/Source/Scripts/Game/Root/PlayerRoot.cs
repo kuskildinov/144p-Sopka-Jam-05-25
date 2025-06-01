@@ -115,11 +115,19 @@ public class PlayerRoot : CompositeRoot
             _playerAlive = false;
             if(_player != null)
             {
-                _player.ChangeState(PlayerState.DEAD);
-                _player.TogglePlayerMovment(false);
+                OnPlayerDead();
             }           
             _levelRoot.OpenGameOverPanel();
         }
+    }
+
+    private void OnPlayerDead()
+    {
+        _player.ChangeState(PlayerState.DEAD);
+        _player.TogglePlayerMovment(false);
+        _player.ToggleRotation(false);
+
+        _levelRoot.OnPlayerDead();
     }
 
    

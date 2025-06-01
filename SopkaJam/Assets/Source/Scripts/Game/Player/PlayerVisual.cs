@@ -42,7 +42,6 @@ public class PlayerVisual : MonoBehaviour
     }
 
     #region >>> ROTATION
-
     public void ActivateRotation()
     {
         _canRotate = true;

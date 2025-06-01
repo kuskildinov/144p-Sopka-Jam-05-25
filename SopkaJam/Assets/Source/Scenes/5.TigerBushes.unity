@@ -2055,6 +2055,7 @@ MonoBehaviour:
   _interactionHintPanel: {fileID: 1981869364}
   _dashHintPanel: {fileID: 326378716}
   _levelHintPanel: {fileID: 0}
+  _attackHintPanel: {fileID: 0}
 --- !u!114 &962131707 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8250504752794277376, guid: 6330675bce6259548b90aac0832e7de6, type: 3}
@@ -5142,21 +5143,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &2618785696856371040
-Transform:
+--- !u!224 &2618785696856371040
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5061644815268209892}
-  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 49.2975, y: 5.27, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4921436957990733057}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 49.2975, y: 5.27}
+  m_SizeDelta: {x: 29.88973, y: 10.8}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &2653281074538387047
 Transform:
   m_ObjectHideFlags: 0
@@ -6143,6 +6148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2618785696856371040}
   - component: {fileID: 1959910129785277494}
+  - component: {fileID: 5061644815268209893}
   m_Layer: 0
   m_Name: ForestBackground (-2)
   m_TagString: Untagged
@@ -6150,6 +6156,14 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!222 &5061644815268209893
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5061644815268209892}
+  m_CullTransparentMesh: 1
 --- !u!4 &5164282722414475121
 Transform:
   m_ObjectHideFlags: 0
