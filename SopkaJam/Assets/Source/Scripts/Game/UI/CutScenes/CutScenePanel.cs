@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CutScenePanel : MonoBehaviour
 {
-    private const float PAGE_FADE_TIME = 3f;
+    private const float PAGE_FADE_TIME = 1f;
 
     [SerializeField] private List<CutScenePage> _cutScenePages;
     private CutSceneRoot _root;

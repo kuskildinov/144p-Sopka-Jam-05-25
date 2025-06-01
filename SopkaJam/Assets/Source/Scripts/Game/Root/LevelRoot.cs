@@ -7,8 +7,7 @@ public class LevelRoot : CompositeRoot
     [SerializeField] private PlayerRoot _playerRoot;
     [SerializeField] private DialogsRoot _dialogsRoot;
     [SerializeField] private HintsRoot _hintsRoot;
-    [SerializeField] private Level _level;
-    [SerializeField] private PausePanel _pausePanel;
+    [SerializeField] private Level _level;    
     [SerializeField] private GameOverPanel _gameOverPanel;
     [SerializeField] private Fade _fadeUI;
 
@@ -22,8 +21,7 @@ public class LevelRoot : CompositeRoot
         if (_level == null)
             return;
         _input = new DesktopInput();
-        _level.Initialize(this, _input);
-        _pausePanel.Initialize(this,_input);
+        _level.Initialize(this, _input);       
         if (_gameOverPanel != null)
             _gameOverPanel.Initialize(this);
         _dialogsRoot.DialogEnded += OnDialogEnded;

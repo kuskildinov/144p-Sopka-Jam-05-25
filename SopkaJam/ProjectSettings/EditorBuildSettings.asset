@@ -30,9 +30,18 @@ EditorBuildSettings:
     path: Assets/Source/Scenes/7.CutScene_2.unity
     guid: 06ca8f0f4238606498a2d2012c70b6e9
   - enabled: 1
-    path: Assets/Source/Scenes/Scene 8.unity
+    path: Assets/Source/Scenes/8.HouseAfterTiger.unity
+    guid: 56253c45f5f2b3544a18f8786dff381c
+  - enabled: 1
+    path: Assets/Source/Scenes/9.CutScene_3.unity
+    guid: 55f840b45d3addf4ca3ae66cda9441bf
+  - enabled: 1
+    path: Assets/Source/Scenes/10.DogsMeeting.unity
+    guid: b58b3222e9b281c4c877baf27f7721c2
+  - enabled: 1
+    path: Assets/Source/Scenes/11.DogsRunner.unity
     guid: 859c1349041787a4c86004bf9993933e
   - enabled: 1
-    path: Assets/Source/Scenes/10.FinalBossFight.unity
+    path: Assets/Source/Scenes/15.FinalBossFight.unity
     guid: 9cc6fc54d53609a4fad6a5637a324b74
   m_configObjects: {}
