@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class ParallaxBackground : MonoBehaviour
 {
-    public float[] layerSpeeds; // —корости дл€ каждого сло€
-    public Transform[] layers;  // —сылки на слои
+    [SerializeField] private LevelRoot _levelRoot;
+    [SerializeField] private string _nextScenename;
+    public float[] layerSpeeds;
+    public Transform[] layers;
 
     public TimerToEnd timerToEnd;
     private bool timerEnd;
@@ -29,6 +31,7 @@ public class ParallaxBackground : MonoBehaviour
             if (houseMove == true)
             {
                 DecreaseSpeedOnFinish();
+                StartCoroutine(LoadNextSceneRoutine());
             }           
             
         }
@@ -58,8 +61,6 @@ public class ParallaxBackground : MonoBehaviour
                 layers[i].position += Vector3.right * (spriteWidth * 2); // —мести вперЄд
             }
         }
-
-
     }
 
     private void IncreaseSpeedByTime()
@@ -77,6 +78,12 @@ public class ParallaxBackground : MonoBehaviour
         {
             layerSpeeds[i] = 0;
         }
+    }
+
+    private IEnumerator LoadNextSceneRoutine()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        _levelRoot.LoadSceneByName(_nextScenename);
     }
 
 

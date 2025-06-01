@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class TimerToEnd : MonoBehaviour
 {
-    private float _timeLeft = 60f; // 60 секунд
+    private float _timeLeft = 60f; 
 
-    public Transform house;         // Ссылка на объект дома
-    public float moveSpeed = 5f;   // Скорость движения дома
-    public float targetX = 0f;     // Конечная позиция (X)
+    public Transform house;      
+    public float moveSpeed = 5f; 
+    public float targetX = 0f;
 
     public bool _timeIsOver = false;
     public bool _shouldMove = false;
@@ -18,7 +18,7 @@ public class TimerToEnd : MonoBehaviour
     {
         if (_timeLeft > 0)
         {
-            _timeLeft -= Time.deltaTime; // Уменьшаем время каждый кадр
+            _timeLeft -= Time.deltaTime;
         }
         else
         {
@@ -34,15 +34,12 @@ public class TimerToEnd : MonoBehaviour
             
             if (house.position.x <= targetX)
             {
-                _stopHouse = true;
-            }
-            // Здесь можно добавить свои действия
-            //enabled = false; // Выключаем таймер
+                _stopHouse = true;              
+            }          
         }
 
         if (_shouldMove && house.position.x > targetX)
-        {
-            // Плавно двигаем дом влево
+        {           
             house.Translate(Vector3.left * moveSpeed * Time.deltaTime);
         }
     }

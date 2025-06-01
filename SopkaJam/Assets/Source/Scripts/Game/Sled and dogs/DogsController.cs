@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DogsController : MonoBehaviour
 {
-
+    [SerializeField] private PlayerRoot _root;
     [Header("Movement")]
     public float moveSpeed = 5f;       // Скорость обычного движения
     public float dashSpeed = 10f;      // Скорость рывка
@@ -16,9 +16,11 @@ public class DogsController : MonoBehaviour
     private float lastDashTime;
     private float originalGravity;
     private bool isTouchingBoundary;
+    private IInput _input;
 
     void Start()
     {
+        _input = new DesktopInput();
         rb = GetComponent<Rigidbody2D>();
         originalGravity = rb.gravityScale;
         rb.gravityScale = 0; // Отключаем гравитацию
@@ -36,7 +38,7 @@ public class DogsController : MonoBehaviour
         }
 
         // Рывок по нажатию Shift
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing && Time.time > lastDashTime + dashCooldown)
+        if (_input.Dash() && !isDashing && Time.time > lastDashTime + dashCooldown)
         {
             float dashDirection = Input.GetAxisRaw("Vertical");
             if (dashDirection != 0) // Рывок только при движении
@@ -71,6 +73,7 @@ public class DogsController : MonoBehaviour
         {
             Debug.Log("-1hp");
             Destroy(collision.gameObject); // Уничтожаем камень
+            _root.OnPlayerTakeDamage();
         }
     }
 

@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 
 public class SledFollower : MonoBehaviour
 {
+    [SerializeField] private PlayerRoot _root;
     [Header("Settings")]
     public Transform player;          // —сылка на персонажа
     public float minFollowSpeed = 2f; // Ѕазова€ скорость
@@ -51,9 +52,9 @@ public class SledFollower : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Obstacle"))
-        {
-            Debug.Log("-1hp");
+        {           
             Destroy(collision.gameObject); // ”ничтожаем камень
+            _root.OnPlayerTakeDamage();
         }
     }
 }
