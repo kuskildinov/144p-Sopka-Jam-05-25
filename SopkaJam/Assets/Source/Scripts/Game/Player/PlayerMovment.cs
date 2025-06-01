@@ -104,6 +104,7 @@ public class PlayerMovment : MonoBehaviour
     {
         _canMove = false;
         _canDash = false;
+        SoundsRoot.Instance.PlayDashSound();
         _player.ChangeState(PlayerState.DASH);
         // Ёффект замедлени€ времени
         Time.timeScale = _slowMotionFactor;

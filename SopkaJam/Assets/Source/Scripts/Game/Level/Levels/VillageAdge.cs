@@ -13,6 +13,7 @@ public class VillageAdge : Level
     [SerializeField] private string _nextSceneName;
     [Header("Cry Settings")]
     [SerializeField] private float _minCryTime = 3f;
+    [SerializeField] private AudioSource _crySource;
     [Header("Tiger Settings")]
     [SerializeField] private float _prepareTime;
     [SerializeField] private float _jumpDuration;
@@ -60,6 +61,7 @@ public class VillageAdge : Level
         {
             _root.DeactivatePlayerMovment();           
             _tigerMeetingPlayableDirector.Play();
+            SoundsRoot.Instance.PlayMeetTigerSound();
         }    
         else if(index == 1)
         {
@@ -101,11 +103,13 @@ public class VillageAdge : Level
     {
         _root.DeactivatePlayerMovment();
         _root.CloseHints();
-        _root.TogglePlayerCry(true);       
+        _root.TogglePlayerCry(true);
+        _crySource.Play();
     }
 
     private void StopCry()
     {
+        _crySource.Pause();
         _root.TogglePlayerCry(false);
         _root.ActivatePlayerMovment();        
         _isCtying = false;

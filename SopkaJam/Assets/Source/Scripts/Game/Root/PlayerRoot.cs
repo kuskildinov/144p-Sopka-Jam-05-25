@@ -75,6 +75,7 @@ public class PlayerRoot : CompositeRoot
 
     public void OnPlayerTakeItem()
     {
+        SoundsRoot.Instance.PlayTakeItemSound();
         _player.OnItemTaked();
     }
 
@@ -82,7 +83,15 @@ public class PlayerRoot : CompositeRoot
     {
         Debug.Log("Получили Урон!!");
         if(_player != null)
+        {
             _player.OnTakeDamage();
+            SoundsRoot.Instance.PlayTakeDamageSound();
+        }
+        else
+        {
+
+        }
+           
         _currentLifeCount--;
         if(_playerUI != null)
             _playerUI.UpdateLifeCount(_currentLifeCount);

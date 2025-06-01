@@ -48,6 +48,7 @@ public class StartHouseLevel : Level
     {
         if (_canLeaveLevel)
         {
+            SoundsRoot.Instance.PlayLeaveHouseSound();
             return true;
         }
            

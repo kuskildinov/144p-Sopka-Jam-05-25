@@ -53,7 +53,7 @@ public class MainTiger : MonoBehaviour
     public void ToggleMovment(bool value) => _movment.ToggleMovment(value);
 
     public void Attack(int index)
-    {
+    {       
         StartCoroutine(AttackRoutine(index));
     }
 
@@ -130,6 +130,7 @@ public class MainTiger : MonoBehaviour
                     yield return new WaitForSecondsRealtime(_prepareTimeForHandAttack);
                     SetNewState(MainTigerState.RIGHT_ATTACK);
                     _handAttackCount++;
+                    SoundsRoot.Instance.PlayTigerAttackSound();
                     yield return new WaitForSecondsRealtime(_attackTime);
                     BackToWalk();
                     yield return new WaitForSecondsRealtime(_timeBeforeAgainCanAttack);
@@ -143,6 +144,7 @@ public class MainTiger : MonoBehaviour
                     yield return new WaitForSecondsRealtime(_prepareTimeForMainAttack);                   
                     SetNewState(MainTigerState.MAIN_ATTACK);
                     _handAttackCount = 0;
+                    SoundsRoot.Instance.PlayTigerAttackSound();
                     yield return new WaitForSecondsRealtime(_attackTime);
                     BackToWalk();
                     yield return new WaitForSecondsRealtime(_timeBeforeAgainCanAttack);
@@ -157,6 +159,7 @@ public class MainTiger : MonoBehaviour
                     yield return new WaitForSecondsRealtime(_prepareTimeForHandAttack);                   
                     SetNewState(MainTigerState.LEFT_ATTACK);
                     _handAttackCount++;
+                    SoundsRoot.Instance.PlayTigerAttackSound();
                     yield return new WaitForSecondsRealtime(_attackTime);
                     BackToWalk();
                     yield return new WaitForSecondsRealtime(_timeBeforeAgainCanAttack);

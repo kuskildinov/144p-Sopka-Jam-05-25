@@ -38,6 +38,7 @@ public class FinalBossLevel : Level
         yield return new WaitForSecondsRealtime(_pauseTime);
         _boss.Attack(BossAttackType.MIDDLE);
         yield return new WaitForSecondsRealtime(BossSlapTime);
+        SoundsRoot.Instance.PlayBossAttackSoound();
         _camera.Shake();
         _middleAttention.gameObject.SetActive(false);
         yield return new WaitForSecondsRealtime(BossAttackTime);
@@ -50,6 +51,7 @@ public class FinalBossLevel : Level
         _boss.Attack(BossAttackType.TOP);
         _boss.Attack(BossAttackType.BOTTOM);
         yield return new WaitForSecondsRealtime(BossSlapTime);
+        SoundsRoot.Instance.PlayBossAttackSoound();
         _camera.Shake();
         _topAttantion.gameObject.SetActive(false);
         _bottomAttention.gameObject.SetActive(false);
@@ -63,6 +65,7 @@ public class FinalBossLevel : Level
         yield return new WaitForSecondsRealtime(_pauseTime);
         _boss.Attack(BossAttackType.TOP);
         yield return new WaitForSecondsRealtime(BossSlapTime);
+        SoundsRoot.Instance.PlayBossAttackSoound();
         _camera.Shake();
         _topAttantion.gameObject.SetActive(false);
         yield return new WaitForSecondsRealtime(BossAttackTime);
@@ -78,16 +81,19 @@ public class FinalBossLevel : Level
 
         _boss.Attack(BossAttackType.TOP);
         yield return new WaitForSecondsRealtime(BossSlapTime);
+        SoundsRoot.Instance.PlayBossAttackSoound();
         _camera.Shake();
         _topAttantion.gameObject.SetActive(false);
         yield return new WaitForSecondsRealtime(_pauseTime);
         _boss.Attack(BossAttackType.MIDDLE);
         yield return new WaitForSecondsRealtime(BossSlapTime);
+        SoundsRoot.Instance.PlayBossAttackSoound();
         _camera.Shake();
         _middleAttention.gameObject.SetActive(false);
         yield return new WaitForSecondsRealtime(_pauseTime);
         _boss.Attack(BossAttackType.BOTTOM);
         yield return new WaitForSecondsRealtime(BossSlapTime);
+        SoundsRoot.Instance.PlayBossAttackSoound();
         _camera.Shake();
         _bottomAttention.gameObject.SetActive(false);
         yield return new WaitForSecondsRealtime(_pauseTime);
@@ -100,27 +106,27 @@ public class FinalBossLevel : Level
         yield return new WaitForSecondsRealtime(_pauseTime);
         _boss.Attack(BossAttackType.BOTTOM);
         yield return new WaitForSecondsRealtime(BossSlapTime);
+        SoundsRoot.Instance.PlayBossAttackSoound();
         _camera.Shake();
         _bottomAttention.gameObject.SetActive(false);
         yield return null;
         #endregion
         #region ‘¿«¿ 6
         yield return new WaitForSecondsRealtime(BossAttackTime);
-        _obstacleSpawner.SpawnObstacle(ObstacleType.ROCK,2);
-        _topAttantion.gameObject.SetActive(true);
+        _obstacleSpawner.SpawnObstacle(ObstacleType.ROCK,2);      
         _bottomAttention.gameObject.SetActive(true);
-        yield return new WaitForSecondsRealtime(_pauseTime);
-        _boss.Attack(BossAttackType.TOP);
+        yield return new WaitForSecondsRealtime(_pauseTime);       
         _boss.Attack(BossAttackType.BOTTOM);
         yield return new WaitForSecondsRealtime(BossSlapTime);
-        _camera.Shake();
-        _topAttantion.gameObject.SetActive(false);
+        SoundsRoot.Instance.PlayBossAttackSoound();
+        _camera.Shake();       
         _bottomAttention.gameObject.SetActive(false);
         yield return new WaitForSecondsRealtime(_pauseTime);      
         _middleAttention.gameObject.SetActive(true);
         yield return new WaitForSecondsRealtime(_pauseTime);
         _boss.Attack(BossAttackType.MIDDLE);
         yield return new WaitForSecondsRealtime(BossSlapTime);
+        SoundsRoot.Instance.PlayBossAttackSoound();
         _camera.Shake();
         _middleAttention.gameObject.SetActive(false);
         yield return null;
@@ -134,44 +140,43 @@ public class FinalBossLevel : Level
         _obstacleSpawner.SpawnObstacle(ObstacleType.LOG, 1);
         _boss.Attack(BossAttackType.TOP);
         yield return new WaitForSecondsRealtime(BossSlapTime);
+        SoundsRoot.Instance.PlayBossAttackSoound();
         _camera.Shake();
         _topAttantion.gameObject.SetActive(false);
         yield return new WaitForSecondsRealtime(_pauseTime);
         _bottomAttention.gameObject.SetActive(true);
-        yield return new WaitForSecondsRealtime(_pauseTime/2);
-        _middleAttention.gameObject.SetActive(true);
-        yield return new WaitForSecondsRealtime(_pauseTime / 2);
+        yield return new WaitForSecondsRealtime(_pauseTime);
+       
+        yield return new WaitForSecondsRealtime(_pauseTime);
         _boss.Attack(BossAttackType.BOTTOM);
         yield return new WaitForSecondsRealtime(BossSlapTime);
+        SoundsRoot.Instance.PlayBossAttackSoound();
         _camera.Shake();
         _bottomAttention.gameObject.SetActive(false);
-        yield return new WaitForSecondsRealtime(_pauseTime / 2);
-        _boss.Attack(BossAttackType.MIDDLE);
-        yield return new WaitForSecondsRealtime(BossSlapTime);
-        _camera.Shake();
-        _middleAttention.gameObject.SetActive(false);
-        yield return new WaitForSecondsRealtime(_pauseTime / 2);
+        yield return new WaitForSecondsRealtime(_pauseTime); 
+       
         //
         _topAttantion.gameObject.SetActive(true);
-        yield return new WaitForSecondsRealtime(_pauseTime / 2);
+        yield return new WaitForSecondsRealtime(_pauseTime);
         _middleAttention.gameObject.SetActive(true);
-        yield return new WaitForSecondsRealtime(_pauseTime / 2);
+        yield return new WaitForSecondsRealtime(_pauseTime);
         _boss.Attack(BossAttackType.TOP);
-        _bottomAttention.gameObject.SetActive(true);
+       
         yield return new WaitForSecondsRealtime(BossSlapTime);
+        SoundsRoot.Instance.PlayBossAttackSoound();
         _camera.Shake();
         _topAttantion.gameObject.SetActive(false);
-        yield return new WaitForSecondsRealtime(_pauseTime / 2);
+        yield return new WaitForSecondsRealtime(_pauseTime);
         _obstacleSpawner.SpawnObstacle(ObstacleType.ROCK,1);
         _boss.Attack(BossAttackType.MIDDLE);
         yield return new WaitForSecondsRealtime(BossSlapTime);
+        SoundsRoot.Instance.PlayBossAttackSoound();
         _camera.Shake();
         _middleAttention.gameObject.SetActive(false);
-        yield return new WaitForSecondsRealtime(_pauseTime / 2);
-        _boss.Attack(BossAttackType.BOTTOM);
+        yield return new WaitForSecondsRealtime(_pauseTime);      
         yield return new WaitForSecondsRealtime(BossSlapTime);
-        _camera.Shake();
-        _bottomAttention.gameObject.SetActive(false);
+        SoundsRoot.Instance.PlayBossAttackSoound();
+        _camera.Shake();       
         yield return new WaitForSecondsRealtime(_pauseTime*2);
         //
         _middleAttention.gameObject.SetActive(true);
@@ -180,6 +185,7 @@ public class FinalBossLevel : Level
         _boss.Attack(BossAttackType.MIDDLE);
         _boss.Attack(BossAttackType.BOTTOM);
         yield return new WaitForSecondsRealtime(BossSlapTime);
+        SoundsRoot.Instance.PlayBossAttackSoound();
         _camera.Shake();
         _middleAttention.gameObject.SetActive(false);
         _bottomAttention.gameObject.SetActive(false);
@@ -191,13 +197,15 @@ public class FinalBossLevel : Level
         _boss.Attack(BossAttackType.TOP);
         _boss.Attack(BossAttackType.MIDDLE);
         yield return new WaitForSecondsRealtime(BossSlapTime);
+        SoundsRoot.Instance.PlayBossAttackSoound();
         _camera.Shake();
         _topAttantion.gameObject.SetActive(false);
         _middleAttention.gameObject.SetActive(false);
         yield return new WaitForSecondsRealtime(_pauseTime);
         yield return null;
         #endregion
-    }
 
-   
+        yield return new WaitForSecondsRealtime(3f);
+        _root.LoadSceneByName(_nextSceneName);
+    }   
 }

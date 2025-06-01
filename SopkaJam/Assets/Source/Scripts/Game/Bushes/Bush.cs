@@ -56,6 +56,7 @@ public class Bush : Trigger
 
     public void Attack(bool isLeft)
     {
+        SoundsRoot.Instance.PlayTigerAttackSound();
         StartCoroutine(AttackRoutine(isLeft));
     }
 
