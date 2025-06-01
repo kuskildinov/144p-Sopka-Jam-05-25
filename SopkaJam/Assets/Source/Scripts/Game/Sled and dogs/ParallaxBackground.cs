@@ -18,10 +18,7 @@ public class ParallaxBackground : MonoBehaviour
     {
         timerEnd = timerToEnd._timeIsOver;
         houseMove = timerToEnd._stopHouse;
-        for (int i = 0; i < layers.Length; i++)
-        {
-            Movment(layers[i], layerSpeeds[i]);
-        }
+        
 
         if (timerEnd == false)
         {
@@ -34,6 +31,11 @@ public class ParallaxBackground : MonoBehaviour
                 DecreaseSpeedOnFinish();
             }           
             
+        }
+
+        for (int i = 0; i < layers.Length; i++)
+        {
+            Movment(layers[i], layerSpeeds[i]);
         }
 
         for (int i = 0; i < layers.Length; i++)
