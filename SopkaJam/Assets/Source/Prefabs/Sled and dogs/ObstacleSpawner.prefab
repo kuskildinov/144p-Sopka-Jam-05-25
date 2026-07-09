@@ -44,14 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32cb388edf2e89b47901476bc38ec1a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstaclePrefab:
-  - {fileID: 8515107897295207448, guid: 062bfd8ed9ee7ca40800ebf32e32b65a, type: 3}
-  - {fileID: 8084211445198808285, guid: a30c88039e95451498bc8a820207e476, type: 3}
-  spawnInterval: 1
-  minY: -3
-  maxY: 3
+  obstaclePrefab: {fileID: 5354658410647489803, guid: 062bfd8ed9ee7ca40800ebf32e32b65a, type: 3}
+  spawnInterval: 3
+  spawnDistance: 10
+  minY: -2
+  maxY: 2
   player: {fileID: 0}
-  startSpeed: 8
-  speedUp: 0.0005
-  timerToEnd: {fileID: 0}
-  beamPos: 0
