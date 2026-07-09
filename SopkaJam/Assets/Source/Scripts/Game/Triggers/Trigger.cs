@@ -4,7 +4,6 @@ public class Trigger : MonoBehaviour
 {
     [SerializeField] private int _index;
     [SerializeField] private TriggetType _type;
-    [SerializeField] private GameObject _outline;
     [SerializeField] private bool _needDisappeare;
     public bool NeedDisappear => _needDisappeare;
 
@@ -20,22 +19,6 @@ public class Trigger : MonoBehaviour
     public virtual void Activate()
     {
         _root.TryActivateTrigger(this);
-    }
-
-    public void ShowOutline()
-    {
-        if (_outline == null)
-            return;
-
-        _outline.gameObject.SetActive(true);
-    }
-
-    public void HideOutline()
-    {
-        if (_outline == null)
-            return;
-
-        _outline.gameObject.SetActive(false);
     }
 }
 

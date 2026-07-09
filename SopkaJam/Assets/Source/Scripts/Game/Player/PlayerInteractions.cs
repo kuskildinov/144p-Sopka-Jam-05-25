@@ -32,8 +32,8 @@ public class PlayerInteractions : MonoBehaviour
         if(collision.gameObject.TryGetComponent<Trigger>(out Trigger trigger))
         {
             _player.OnPlayerEnterTrigger(trigger,true);
-            _currentTrigger = trigger;
-            trigger.ShowOutline();
+            _currentTrigger = trigger;           
+
             if (_currentTrigger.Type == TriggetType.PASSIVE_DIALOG||
                 _currentTrigger.Type == TriggetType.DETECTION ||
                 _currentTrigger.Type == TriggetType.TAKE_DAMAGE ||
@@ -54,7 +54,6 @@ public class PlayerInteractions : MonoBehaviour
         if (collision.gameObject.TryGetComponent<Trigger>(out Trigger trigger))
         {
             _player.OnPlayerExitTrigger();
-            trigger.HideOutline();
             _currentTrigger = null;        
         }
     }

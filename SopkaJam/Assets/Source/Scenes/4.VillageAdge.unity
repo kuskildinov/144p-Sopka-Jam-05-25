@@ -132,7 +132,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 407682572308735889, guid: aaa9dd433d104924baac17bcd84ab9b7, type: 3}
       propertyPath: m_Text
-      value: If I run away, where will I go? Who will take me in?
+      value: "\u0415\u0441\u043B\u0438 \u044F \u0441\u0431\u0435\u0433\u0443, \u043A\u0443\u0434\u0430
+        \u044F \u043F\u043E\u0439\u0434\u0443? \u041A\u0442\u043E \u043C\u0435\u043D\u044F
+        \u043F\u0440\u0438\u043C\u0435\u0442?\r"
       objectReference: {fileID: 0}
     - target: {fileID: 923521284888959905, guid: aaa9dd433d104924baac17bcd84ab9b7, type: 3}
       propertyPath: m_IsActive
@@ -1457,7 +1459,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3204858048560946253, guid: 3a3ef88bcfc11fe4891e8b9703e885c9, type: 3}
       propertyPath: m_Text
-      value: I'm Sol'diga's daughter. What do you want?
+      value: "\u042F \u0434\u043E\u0447\u044C \u0421\u043E\u043B\u044C\u0434\u0438\u0433\u0438.
+        \u0410 \u0442\u0435\u0431\u0435 \u0447\u0442\u043E \u043D\u0430\u0434\u043E?\r"
       objectReference: {fileID: 0}
     - target: {fileID: 3204858048560946253, guid: 3a3ef88bcfc11fe4891e8b9703e885c9, type: 3}
       propertyPath: m_FontData.m_Font
@@ -2034,7 +2037,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 407682572308735889, guid: aaa9dd433d104924baac17bcd84ab9b7, type: 3}
       propertyPath: m_Text
-      value: Maybe if I work even harder, my stepmother will stop hating me?
+      value: "\u041C\u043E\u0436\u0435\u0442, \u0435\u0441\u043B\u0438 \u044F \u0431\u0443\u0434\u0443
+        \u0440\u0430\u0431\u043E\u0442\u0430\u0442\u044C \u0435\u0449\u0435 \u0443\u0441\u0435\u0440\u0434\u043D\u0435\u0435,
+        \u043C\u0430\u0447\u0435\u0445\u0430 \u043F\u0435\u0440\u0435\u0441\u0442\u0430\u043D\u0435\u0442
+        \u043C\u0435\u043D\u044F \u043D\u0435\u043D\u0430\u0432\u0438\u0434\u0435\u0442\u044C?\r"
       objectReference: {fileID: 0}
     - target: {fileID: 923521284888959905, guid: aaa9dd433d104924baac17bcd84ab9b7, type: 3}
       propertyPath: m_IsActive
@@ -2292,7 +2298,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 407682572308735889, guid: aaa9dd433d104924baac17bcd84ab9b7, type: 3}
       propertyPath: m_Text
-      value: I won't give up. I'll be strong, like daddy wanted...
+      value: "\u042F \u043D\u0435 \u0441\u0434\u0430\u043C\u0441\u044F. \u042F \u0431\u0443\u0434\u0443
+        \u0441\u0438\u043B\u044C\u043D\u043E\u0439, \u043A\u0430\u043A \u043F\u0430\u043F\u0430
+        \u0445\u043E\u0442\u0435\u043B...\r"
       objectReference: {fileID: 0}
     - target: {fileID: 923521284888959905, guid: aaa9dd433d104924baac17bcd84ab9b7, type: 3}
       propertyPath: m_IsActive
@@ -2448,10 +2456,6 @@ PrefabInstance:
     - target: {fileID: 885478534306275510, guid: b5e48b455c3ddf14fa2952e10d3d12c6, type: 3}
       propertyPath: m_Name
       value: TakeItemTrigger (forest)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4295058947774939150, guid: b5e48b455c3ddf14fa2952e10d3d12c6, type: 3}
-      propertyPath: _outline
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4295058947774939150, guid: b5e48b455c3ddf14fa2952e10d3d12c6, type: 3}
       propertyPath: _needDisappeare
@@ -3246,7 +3250,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 407682572308735889, guid: aaa9dd433d104924baac17bcd84ab9b7, type: 3}
       propertyPath: m_Text
-      value: Dad... why did you leave? Now there's no one to protect me...
+      value: "\u041F\u0430\u043F\u0430... \u0437\u0430\u0447\u0435\u043C \u0442\u044B
+        \u0443\u0448\u0435\u043B? \u0422\u0435\u043F\u0435\u0440\u044C \u043D\u0435\u043A\u043E\u043C\u0443
+        \u0437\u0430\u0449\u0438\u0442\u0438\u0442\u044C \u043C\u0435\u043D\u044F\u2026\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 923521284888959905, guid: aaa9dd433d104924baac17bcd84ab9b7, type: 3}
       propertyPath: m_IsActive
@@ -4891,7 +4897,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3204858048560946253, guid: 3a3ef88bcfc11fe4891e8b9703e885c9, type: 3}
       propertyPath: m_Text
-      value: I tore Soldiha to pieces... and now I'll eat you!
+      value: "\u0420\u0430\u0441\u0442\u0435\u0440\u0437\u0430\u043B \u044F \u0421\u043E\u043B\u044C\u0434\u0438\u0433\u0443...
+        \u0438 \u0442\u0435\u0431\u044F \u0442\u0435\u043F\u0435\u0440\u044C \u0441\u044A\u0435\u043C!
+        \r"
       objectReference: {fileID: 0}
     - target: {fileID: 3204858048560946253, guid: 3a3ef88bcfc11fe4891e8b9703e885c9, type: 3}
       propertyPath: m_FontData.m_Font
@@ -7570,7 +7578,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8804572759661595957, guid: 4ac98142e7eff4e4abbd0fbb82c7a9bd, type: 3}
       propertyPath: m_Text
-      value: Hey, what are you doing here, girl? Whose are you?
+      value: "\u042D\u0439, \u0447\u0442\u043E \u0442\u044B \u0434\u0435\u043B\u0430\u0435\u0448\u044C
+        \u0442\u0443\u0442, \u0434\u0435\u0432\u0447\u043E\u043D\u043A\u0430? \u0427\u044C\u044F
+        \u0442\u044B?\r"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9156,7 +9166,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 407682572308735889, guid: aaa9dd433d104924baac17bcd84ab9b7, type: 3}
       propertyPath: m_Text
-      value: The tiger took my father... what if he comes for me too?
+      value: "\u0422\u0438\u0433\u0440 \u0437\u0430\u0431\u0440\u0430\u043B \u043E\u0442\u0446\u0430...
+        \u0430 \u0432\u0434\u0440\u0443\u0433 \u043E\u043D \u043F\u0440\u0438\u0434\u0435\u0442
+        \u0438 \u0437\u0430 \u043C\u043D\u043E\u0439?"
       objectReference: {fileID: 0}
     - target: {fileID: 923521284888959905, guid: aaa9dd433d104924baac17bcd84ab9b7, type: 3}
       propertyPath: m_IsActive

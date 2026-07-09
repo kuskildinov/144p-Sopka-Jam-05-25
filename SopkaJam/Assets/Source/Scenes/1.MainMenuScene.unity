@@ -601,7 +601,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Select chapter
+  m_Text: "\u0412\u044B\u0431\u0440\u0430\u0442\u044C \u0433\u043B\u0430\u0432\u0443"
 --- !u!222 &417871838
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -680,7 +680,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Yes
+  m_Text: "\u0414\u0430"
 --- !u!222 &418469452
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -850,7 +850,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Elga's \nTears"
+  m_Text: " \u0421\u043B\u0451\u0437\u044B\n \u042D\u043B\u044C\u0433\u0438"
 --- !u!222 &534119650
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1062,7 +1062,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: No
+  m_Text: "\u043D\u0435\u0442"
 --- !u!222 &587155364
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1383,7 +1383,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New game
+  m_Text: "\u041D\u043E\u0432\u0430\u044F \u0438\u0433\u0440\u0430"
 --- !u!222 &724846212
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1882,7 +1882,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Are you sure you want to exit?
+  m_Text: "\u0423\u0432\u0435\u0440\u0435\u043D\u044B \u0447\u0442\u043E \u0445\u043E\u0442\u0438\u0442\u0435
+    \u0432\u044B\u0439\u0442\u0438?"
 --- !u!222 &1018785075
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1950,10 +1951,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 6f8e1e371c06317439c59ed388143b11, type: 3}
-    m_FontSize: 60
+    m_FontSize: 78
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 6
+    m_MinSize: 10
     m_MaxSize: 78
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1961,7 +1962,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Chapter 1
+  m_Text: "\u0413\u043B\u0430\u0432\u0430 1"
 --- !u!222 &1067282362
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2029,10 +2030,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 6f8e1e371c06317439c59ed388143b11, type: 3}
-    m_FontSize: 60
+    m_FontSize: 78
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 6
+    m_MinSize: 10
     m_MaxSize: 78
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -2040,7 +2041,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Chapter 2
+  m_Text: "\u0413\u043B\u0430\u0432\u0430 2"
 --- !u!222 &1125430632
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2234,7 +2235,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Exit
+  m_Text: "\u0412\u044B\u0445\u043E\u0434"
 --- !u!222 &1187958983
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2645,10 +2646,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 6f8e1e371c06317439c59ed388143b11, type: 3}
-    m_FontSize: 60
+    m_FontSize: 78
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 6
+    m_MinSize: 10
     m_MaxSize: 78
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -2656,7 +2657,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Chapter 3
+  m_Text: "\u0413\u043B\u0430\u0432\u0430 3"
 --- !u!222 &1543540256
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2837,7 +2838,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Settings
+  m_Text: "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438"
 --- !u!222 &1557835123
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2993,7 +2994,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: back
+  m_Text: "\u041D\u0430\u0437\u0430\u0434"
 --- !u!222 &1601955829
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3615,7 +3616,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Select chapter
+  m_Text: "\u0412\u044B\u0431\u0435\u0440\u0438 \u0433\u043B\u0430\u0432\u0443"
 --- !u!222 &2057302305
 CanvasRenderer:
   m_ObjectHideFlags: 0
